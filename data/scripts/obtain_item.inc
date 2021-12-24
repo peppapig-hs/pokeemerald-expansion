@@ -50,10 +50,16 @@ EventScript_BufferBerriesPocket::
 	return
 
 EventScript_ObtainedItem::
+	goto_if_eq VAR_0x8001, 1, EventScript_ObtainedItemMessage
+	buffernumberstring 0, VAR_0x8001
+	message gText_ObtainedTheItems
+	goto EventScript_ContinueObtainedItem
+EventScript_ObtainedItemMessage:
 	message gText_ObtainedTheItem
+EventScript_ContinueObtainedItem:
 	waitfanfare
 	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
-	setvar VAR_RESULT, TRUE
+	setvar VAR_RESULT, 1
 	return
 
 EventScript_NoRoomForItem::
