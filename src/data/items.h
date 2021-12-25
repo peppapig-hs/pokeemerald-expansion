@@ -8777,9 +8777,9 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_MEGA_RING] = // Todo (Replaces ITEM_MEGA_BRACELET)
+    [ITEM_MEGA_RING] =
     {
-        .name = _("Mega Bracelet"),
+        .name = _("Mega Ring"),
         .itemId = ITEM_MEGA_RING,
         .price = 0,
         .importance = 1,

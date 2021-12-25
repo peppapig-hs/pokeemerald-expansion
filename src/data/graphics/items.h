@@ -1876,8 +1876,8 @@ const u32 gItemIconPalette_Gracidea[] = INCBIN_U32("graphics/items/icon_palettes
 //const u32 gItemIcon_KeyStone[] = INCBIN_U32("graphics/items/icons/question_mark.4bpp.lz");
 //const u32 gItemIconPalette_KeyStone[] = INCBIN_U32("graphics/items/icon_palettes/question_mark.gbapal.lz");
 
-//const u32 gItemIcon_MegaRing[] = INCBIN_U32("graphics/items/icons/question_mark.4bpp.lz");
-//const u32 gItemIconPalette_MegaRing[] = INCBIN_U32("graphics/items/icon_palettes/question_mark.gbapal.lz");
+const u32 gItemIcon_MegaRing[] = INCBIN_U32("graphics/items/icons/mega_ring.4bpp.lz");
+const u32 gItemIconPalette_MegaRing[] = INCBIN_U32("graphics/items/icon_palettes/mega_ring.gbapal.lz");
 
 //const u32 gItemIcon_MegaBracelet[] = INCBIN_U32("graphics/items/icons/mega_bracelet.4bpp.lz"); // Remove
 //const u32 gItemIconPalette_MegaBracelet[] = INCBIN_U32("graphics/items/icon_palettes/mega_bracelet.gbapal.lz"); // Remove

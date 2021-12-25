@@ -8293,8 +8293,8 @@ extern const u32 gItemIconPalette_Gracidea[];
 // Battle Mechanic Key Items
 //extern const u32 gItemIcon_KeyStone[];
 //extern const u32 gItemIconPalette_KeyStone[];
-//extern const u32 gItemIcon_MegaRing[];
-//extern const u32 gItemIconPalette_MegaRing[];
+extern const u32 gItemIcon_MegaRing[];
+extern const u32 gItemIconPalette_MegaRing[];
 //extern const u32 gItemIcon_ZPowerRing[];
 //extern const u32 gItemIconPalette_ZPowerRing[];
 //extern const u32 gItemIcon_DynamaxBand[];
