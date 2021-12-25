@@ -987,7 +987,7 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     s16 *data = gTasks[taskId].data;
 
     u16 quantityInBag = CountTotalItemQuantityInBag(tItemId);
-    u16 maxQuantity;
+    u32 maxQuantity;
 
     DrawStdFrameWithCustomTileAndPalette(3, FALSE, 1, 13);
     ConvertIntToDecimalStringN(gStringVar1, quantityInBag, STR_CONV_MODE_RIGHT_ALIGN, MAX_ITEM_DIGITS + 1);
@@ -1000,9 +1000,9 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
 
     maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
 
-    if (maxQuantity > MAX_BAG_ITEM_CAPACITY)
+    if (maxQuantity > MAX_BAG_ITEM_CAPACITY_OLD)
     {
-        sShopData->maxQuantity = MAX_BAG_ITEM_CAPACITY;
+        sShopData->maxQuantity = MAX_BAG_ITEM_CAPACITY_OLD;
     }
     else
     {
