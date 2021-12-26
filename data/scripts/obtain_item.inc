@@ -54,20 +54,17 @@ EventScript_BufferBerriesPocket::
 
 EventScript_BufferMedicinePocket::
 	bufferstdstring 2, STDSTRING_MEDICINE
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_BufferBattlePocket::
 	bufferstdstring 2, STDSTRING_BATTLEITEMS
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_BufferMegaStonesPocket::
 	bufferstdstring 2, STDSTRING_MEGASTONE
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	call_if_eq VAR_0x8007, TRUE, EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_ObtainedItem::
