@@ -11,8 +11,7 @@ PacifidlogTown_House2_EventScript_FanClubYoungerBrother::
 	goto_if_set FLAG_RECEIVED_DIANCITE, PacifidlogTown_House2_EventScript_FanClubYoungerBrotherContinue
 	specialvar VAR_0x8004, GetLeadMonIndex
 	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	compare VAR_RESULT, SPECIES_DIANCIE
-	goto_if_eq PacifidlogTown_House2_EventScript_CheckDiancie
+	goto_if_eq VAR_RESULT, SPECIES_DIANCIE, PacifidlogTown_House2_EventScript_CheckDiancie
 PacifidlogTown_House2_EventScript_FanClubYoungerBrotherContinue:
 	goto_if_set FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK, PacifidlogTown_House2_EventScript_ComeBackInXDays
 	call_if_set FLAG_MET_FANCLUB_YOUNGER_BROTHER, PacifidlogTown_House2_EventScript_MonAssessment
@@ -38,8 +37,7 @@ PacifidlogTown_House2_EventScript_CheckDiancie::
 	applymovement LOCALID_GENTLEMAN, Common_Movement_Delay48
 	waitmovement 0
 	specialvar VAR_RESULT, GetLeadMonFriendshipScore
-	compare VAR_RESULT, 5
-	goto_if_ge PacifidlogTown_House2_EventScript_GiveDiancite
+	goto_if_ge VAR_RESULT, 5, PacifidlogTown_House2_EventScript_GiveDiancite
 	msgbox PacifidlogTown_House2_Text_DiancieNotHappy, MSGBOX_DEFAULT
 	release
 	end

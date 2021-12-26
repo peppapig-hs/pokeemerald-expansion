@@ -419,11 +419,9 @@ LilycoveCity_EventScript_Maniac::
 	msgbox LilycoveCity_Text_ManiacRiddle, MSGBOX_DEFAULT
 	special ChoosePartyMon
 	waitstate
-	compare VAR_0x8004, PARTY_SIZE
-	goto_if_ge LilycoveCity_EventScript_ManiacExit
+	goto_if_ge VAR_0x8004, PARTY_SIZE, LilycoveCity_EventScript_ManiacExit
 	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	compare VAR_RESULT, SPECIES_ALTARIA
-	goto_if_ne LilycoveCity_EventScript_ManiacExit
+	goto_if_ne VAR_RESULT, SPECIES_ALTARIA, LilycoveCity_EventScript_ManiacExit
 	bufferspeciesname 0, SPECIES_ALTARIA
 	msgbox LilycoveCity_Text_ManiacCorrectAnswer, MSGBOX_DEFAULT
 	giveitem ITEM_ALTARIANITE

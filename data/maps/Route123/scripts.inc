@@ -179,11 +179,9 @@ Route123_EventScript_Fisherman::
 	msgbox Route123_Text_FishermanRiddle, MSGBOX_DEFAULT
 	special ChoosePartyMon
 	waitstate
-	compare VAR_0x8004, PARTY_SIZE
-	goto_if_ge Route123_EventScript_FishermanExit
+	goto_if_ge VAR_0x8004, PARTY_SIZE, Route123_EventScript_FishermanExit
 	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	compare VAR_RESULT, SPECIES_MAGIKARP
-	goto_if_ne Route123_EventScript_FishermanExit
+	goto_if_ne VAR_RESULT, SPECIES_MAGIKARP, Route123_EventScript_FishermanExit
 	msgbox Route123_Text_FishermanCorrectAnswer, MSGBOX_DEFAULT
 	giveitem ITEM_GYARADOSITE
 	waitmessage
