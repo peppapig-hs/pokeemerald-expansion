@@ -24,9 +24,16 @@ MeteorFalls_StevensCave_EventScript_Steven::
 MeteorFalls_StevensCave_EventScript_Defeated::
 	applymovement LOCALID_STEVEN, Common_Movement_FacePlayer
 	waitmovement 0
+	call_if_unset FLAG_RECEIVED_METAGROSSITE, MeteorFalls_StevensCave_EventScript_GiveMetagrossite
 	msgbox MeteorFalls_StevensCave_Text_MyPredictionCameTrue, MSGBOX_DEFAULT
 	release
 	end
+
+MeteorFalls_StevensCave_EventScript_GiveMetagrossite::
+	msgbox MeteorFalls_StevensCave_Text_GiveMetagrossite, MSGBOX_DEFAULT
+	giveitem ITEM_METAGROSSITE
+	setflag FLAG_RECEIVED_METAGROSSITE
+	return
 
 MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst:
 	.string "STEVEN: Oh, wow, {PLAYER}{KUN}.\n"
@@ -44,6 +51,10 @@ MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst:
 MeteorFalls_StevensCave_Text_StevenDefeat:
 	.string "You…\n"
 	.string "I had no idea you'd become so strong…$"
+
+MeteorFalls_StevensCave_Text_GiveMetagrossite:
+	.string "STEVEN: Please take this.\n"
+	.string "You deserve it.$"
 
 MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
 	.string "STEVEN: Come to think of it, ever since\n"

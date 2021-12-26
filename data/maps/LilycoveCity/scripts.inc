@@ -412,6 +412,35 @@ LilycoveCity_EventScript_DontKnowAboutBerryBlender::
 	msgbox LilycoveCity_Text_ExplainBerryBlender, MSGBOX_DEFAULT
 	return
 
+LilycoveCity_EventScript_Maniac::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_ALTARIANITE, LilycoveCity_EventScript_ManiacRiddleSolved
+	msgbox LilycoveCity_Text_ManiacRiddle, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge LilycoveCity_EventScript_ManiacExit
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_ALTARIA
+	goto_if_ne LilycoveCity_EventScript_ManiacExit
+	bufferspeciesname 0, SPECIES_ALTARIA
+	msgbox LilycoveCity_Text_ManiacCorrectAnswer, MSGBOX_DEFAULT
+	giveitem ITEM_ALTARIANITE
+	setflag FLAG_RECEIVED_ALTARIANITE
+	goto LilycoveCity_EventScript_ManiacRiddleSolved
+	end
+
+LilycoveCity_EventScript_ManiacExit::
+	msgbox LilycoveCity_Text_ManiacExit, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_EventScript_ManiacRiddleSolved::
+	msgbox LilycoveCity_Text_ManiacRiddleSolved, MSGBOX_DEFAULT
+	release
+	end
+
 LilycoveCity_Text_MayShoppingLetsBattle:
 	.string "MAY: Oh, hey?\n"
 	.string "{PLAYER}{KUN}, are you shopping, too?\p"
@@ -759,3 +788,23 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
 
+LilycoveCity_Text_ManiacRiddle:
+	.string "This is where fans of Contest\n"
+	.string "Spectacular Trainers hold\l"
+	.string "passionate discussions everyday.\p"
+	.string "To commemorate our first meeting,\n"
+	.string "how about a contest quiz?\p"
+	.string "What POKéMON does WINONA always\n"
+	.string "have with her? Try and show me!$"
+
+LilycoveCity_Text_ManiacExit:
+	.string "Too bad! A miss!$"
+
+LilycoveCity_Text_ManiacCorrectAnswer:
+	.string "I expected nothing less from you!\p"
+	.string "Your {STR_VAR_1} looks pretty\n"
+	.string "amazing, too, doesn't it?\l"
+	.string "You can make it, can't you?$"
+
+LilycoveCity_Text_ManiacRiddleSolved:
+	.string "Yeah, yeah, hang in there!$"

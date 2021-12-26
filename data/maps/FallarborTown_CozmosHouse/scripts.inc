@@ -41,7 +41,16 @@ FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite::
 	end
 
 FallarborTown_CozmosHouse_EventScript_GaveMeteorite::
+	goto_if_unset FLAG_RECEIVED_GALLADITE, FallarborTown_CozmosHouse_EventScript_GiveGalladite
 	msgbox FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_CozmosHouse_EventScript_GiveGalladite::
+	msgbox FallarborTown_CozmosHouse_Text_GiveGalladite, MSGBOX_DEFAULT
+	giveitem ITEM_GALLADITE
+	setflag FLAG_RECEIVED_GALLADITE
+	msgbox FallarborTown_CozmosHouse_Text_ExplainGalladite, MSGBOX_DEFAULT
 	release
 	end
 
@@ -116,3 +125,33 @@ FallarborTown_CozmosHouse_Text_CozmoIsSoHappy:
 	.string "Look at PROF. COZMO…\n"
 	.string "He's so happy! I think it's cute.$"
 
+FallarborTown_CozmosHouse_Text_GiveGalladite:
+	.string "PROF. COZMO: Oh! Why, hello again!\p"
+	.string "What good fortune...\p"
+	.string "I'd been thinking that if I saw you\n"
+	.string "again, I would want to give you this...$"
+
+FallarborTown_CozmosHouse_Text_ExplainGalladite:
+	.string "I happened to pick this up some\n"
+	.string "time ago, while doing excavation\l"
+	.string "at Meteor Falls.\p"
+	.string "I hoped it might help you and your\n"
+	.string "team along on your journey.\p"
+	.string "But I'm still astounded by it all.\p"
+	.string "A relationship between the\n"
+	.string "Mega Stones, Key Stones, and\l"
+	.string "the Meteorites...\p"
+	.string "My, but new facts do come to light\n"
+	.string "every day! This is what makes my\l"
+	.string "research feel worthwhile!\p"
+	.string "I know a man, a dear friend in the\n"
+	.string "Kalos regoin, who has been researching\l"
+	.string "Mega Evolution.\p"
+	.string "We worked together a few years back\n"
+	.string "here at Meteor Falls researching\l"
+	.string "Meteorites.\p"
+	.string "I'll have to share this information\n"
+	.string "with him at once.\p"
+	.string "It might propel his research forward,\n"
+	.string "and help future Trainers and\l"
+	.string "POKéMON. I hope it does.$"

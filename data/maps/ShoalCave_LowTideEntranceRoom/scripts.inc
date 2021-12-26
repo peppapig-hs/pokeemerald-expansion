@@ -36,6 +36,15 @@ ShoalCave_LowTideEntranceRoom_EventScript_ShellBellExpert::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox ShoalCave_LowTideEntranceRoom_Text_ExplainShellBell, MSGBOX_DEFAULT
 	setflag FLAG_TEMP_2
+	goto_if_unset FLAG_RECEIVED_SLOWBRONITE, ShoalCave_LowTideEntranceRoom_EventScript_GiveSlowbronite
+	release
+	end
+
+ShoalCave_LowTideEntranceRoom_EventScript_GiveSlowbronite::
+	msgbox ShoalCave_LowTideEntranceRoom_Text_GiveSlowbronite, MSGBOX_DEFAULT
+	giveitem ITEM_SLOWBRONITE
+	setflag FLAG_RECEIVED_SLOWBRONITE
+	closemessage
 	release
 	end
 

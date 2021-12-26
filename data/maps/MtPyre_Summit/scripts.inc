@@ -220,6 +220,9 @@ MtPyre_Summit_EventScript_ArchieMaxieReturnOrbs::
 	call_if_eq VAR_0x8008, 1, MtPyre_Summit_EventScript_MaxieApproachPlayer1
 	call_if_eq VAR_0x8008, 2, MtPyre_Summit_EventScript_MaxieApproachPlayer2
 	msgbox MtPyre_Summit_Text_MaxieSilence, MSGBOX_DEFAULT
+	giveitem ITEM_RED_ORB
+	waitmessage
+	giveitem ITEM_BLUE_ORB
 	closemessage
 	call_if_eq VAR_0x8008, 0, MtPyre_Summit_EventScript_MaxieApproachArchie0
 	call_if_eq VAR_0x8008, 1, MtPyre_Summit_EventScript_MaxieApproachArchie1
@@ -542,6 +545,7 @@ MtPyre_Summit_Text_GroudonKyogreAwakened:
 MtPyre_Summit_Text_ThoseTwoMenReturnedOrbs:
 	.string "The two men who took the ORBS came\n"
 	.string "back to return them on their own.\p"
+	.string "Please take care of them for us.\p"
 	.string "Those men…\n"
 	.string "Perhaps they are not so evil after all…$"
 
@@ -593,8 +597,8 @@ MtPyre_Summit_Text_WellThatTooIsFine:
 
 MtPyre_Summit_Text_MaxieSilence:
 	.string "MAXIE: {PLAYER}…\p"
-	.string "… … … … … …\n"
-	.string "… … … … … …$"
+	.string "Please take these.\n"
+	.string "We no longer need them.$"
 
 MtPyre_Summit_Text_HearTheNewLegendOfHoenn:
 	.string "It is my role to pass on the legends\n"

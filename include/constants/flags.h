@@ -651,48 +651,54 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
-#define FLAG_UNUSED_0x271  0x271 // Unused Flag
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
-#define FLAG_UNUSED_0x27E  0x27E // Unused Flag
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
-#define FLAG_UNUSED_0x282  0x282 // Unused Flag
-#define FLAG_UNUSED_0x283  0x283 // Unused Flag
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
-#define FLAG_UNUSED_0x285  0x285 // Unused Flag
-#define FLAG_UNUSED_0x286  0x286 // Unused Flag
-#define FLAG_UNUSED_0x287  0x287 // Unused Flag
-#define FLAG_UNUSED_0x288  0x288 // Unused Flag
-#define FLAG_UNUSED_0x289  0x289 // Unused Flag
-#define FLAG_UNUSED_0x28A  0x28A // Unused Flag
-#define FLAG_UNUSED_0x28B  0x28B // Unused Flag
-#define FLAG_UNUSED_0x28C  0x28C // Unused Flag
-#define FLAG_UNUSED_0x28D  0x28D // Unused Flag
+// Mega Stones
+#define FLAG_ITEM_SAFARI_ZONE_NORTH_WEST_ABSOLITE                 0x264
+#define FLAG_ITEM_RUSTURF_TUNNEL_AGGRONITE                        0x265
+#define FLAG_ITEM_SLATEPORT_CITY_ALAKAZITE                        0x266
+#define FLAG_RECEIVED_ALTARIANITE                                 0x267
+#define FLAG_ITEM_MT_PYRE_SUMMIT_BANETTITE                        0x268
+#define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_BEEDRILLITE  0x269
+#define FLAG_ITEM_FORTREE_CITY_GARCHOMPITE                        0x26A
+#define FLAG_ITEM_SHOAL_CAVE_ICE_ROOM_GLALITITE                   0x26B
+#define FLAG_RECEIVED_GYARADOSITE                                 0x26C
+#define FLAG_ITEM_ROUTE_127_HERACRONITE                           0x26D
+#define FLAG_ITEM_LILYCOVE_CITY_LUCARIONITE                       0x26E
+#define FLAG_ITEM_ROUTE_110_MANECTITE                             0x26F
+#define FLAG_ITEM_ROUTE_117_MAWILITE                              0x270
+#define FLAG_ITEM_MT_PYRE_6F_MEDICHAMITE                          0x271
+#define FLAG_ITEM_ROUTE_120_PIDGEOTITE                            0x272
+#define FLAG_ITEM_ROUTE_124_PINSIRITE                             0x273
+#define FLAG_ITEM_SOOTOPOLIS_CITY_SABLENITE                       0x274
+#define FLAG_RECEIVED_SLOWBRONITE                                 0x275
+#define FLAG_ITEM_GRANITE_CAVE_B2F_STEELIXITE                     0x276
+
+// Mega Stones After Legendary Encounter
+#define FLAG_ITEM_ROUTE_123_ABOMASITE                   0x277
+#define FLAG_ITEM_METEOR_FALLS_1F_2R_AERODACTYLITE      0x278
+#define FLAG_ITEM_NEW_MAUVILLE_AMPHAROSITE              0x279
+#define FLAG_ITEM_FIERY_PATH_CHARIZARDITE_X             0x27A
+#define FLAG_ITEM_SCORCHED_SLAB_CHARIZARDITE_Y          0x27B
+#define FLAG_RECEIVED_GARDEVOIRITE                      0x27C
+#define FLAG_ITEM_LAVARIDGE_TOWN_HOUNDOOMINITE          0x27D
+#define FLAG_ITEM_PACIFIDLOG_TOWN_KANGASKHANITE         0x27E
+#define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_LOPUNNITE  0x27F
+#define FLAG_ITEM_LITTLEROOT_TOWN_MEWTWONITE_X          0x280
+#define FLAG_ITEM_EVERGRANDE_CITY_MEWTWONITE_Y          0x281
+#define FLAG_ITEM_ROUTE_119_SCIZORITE                   0x282
+#define FLAG_ITEM_JAGGED_PASS_TYRANITARITE              0x283
+#define FLAG_ITEM_ROUTE_119_VENUSAURITE                 0x284
+
+// Mega Stones After Defeating Champion
+#define FLAG_ITEM_ROUTE_104_AUDINITE                 0x285
+#define FLAG_ITEM_SS_TIDAL_LOWER_DECK_BLASTOISINITE  0x286
+#define FLAG_ITEM_MAGMA_HIDEOUT_2F_3R_CAMERUPTITE    0x287
+#define FLAG_RECEIVED_GALLADITE                      0x288
+#define FLAG_ITEM_MT_PYRE_3F_GENGARITE               0x289
+#define FLAG_RECEIVED_METAGROSSITE                   0x28A
+#define FLAG_RECEIVED_SALAMENCITE                    0x28B
+#define FLAG_ITEM_AQUA_HIDEOUT_B2F_SHARPEDONITE      0x28C
+#define FLAG_RECEIVED_DIANCITE                       0x28D
+
 #define FLAG_UNUSED_0x28E  0x28E // Unused Flag
 #define FLAG_UNUSED_0x28F  0x28F // Unused Flag
 #define FLAG_UNUSED_0x290  0x290 // Unused Flag
@@ -1067,14 +1073,14 @@
 #define FLAG_ITEM_ROUTE_116_ETHER                                   0x3FB
 #define FLAG_ITEM_ROUTE_116_REPEL                                   0x3FC
 #define FLAG_ITEM_ROUTE_116_HP_UP                                   0x3FD
-#define FLAG_ITEM_ROUTE_117_GREAT_BALL                              0x3FE
+#define FLAG_UNUSED_0x3FE                                           0x3FE // Unused Flag
 #define FLAG_ITEM_ROUTE_117_REVIVE                                  0x3FF
 #define FLAG_ITEM_ROUTE_119_SUPER_REPEL                             0x400
 #define FLAG_ITEM_ROUTE_119_ZINC                                    0x401
 #define FLAG_ITEM_ROUTE_119_ELIXIR_1                                0x402
 #define FLAG_ITEM_ROUTE_119_LEAF_STONE                              0x403
 #define FLAG_ITEM_ROUTE_119_RARE_CANDY                              0x404
-#define FLAG_ITEM_ROUTE_119_HYPER_POTION_1                          0x405
+#define FLAG_UNUSED_0x405                                           0x405 // Unused Flag
 #define FLAG_ITEM_ROUTE_120_NUGGET                                  0x406
 #define FLAG_ITEM_ROUTE_120_FULL_HEAL                               0x407
 #define FLAG_ITEM_ROUTE_123_CALCIUM                                 0x408
@@ -1094,11 +1100,11 @@
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_MOON_STONE                     0x416
 #define FLAG_ITEM_METEOR_FALLS_1F_1R_PP_UP                          0x417
 #define FLAG_ITEM_RUSTURF_TUNNEL_POKE_BALL                          0x418
-#define FLAG_ITEM_RUSTURF_TUNNEL_MAX_ETHER                          0x419
+#define FLAG_UNUSED_0x419                                           0x419 // Unused Flag
 #define FLAG_ITEM_GRANITE_CAVE_1F_ESCAPE_ROPE                       0x41A
 #define FLAG_ITEM_GRANITE_CAVE_B1F_POKE_BALL                        0x41B
 #define FLAG_ITEM_MT_PYRE_5F_LAX_INCENSE                            0x41C
-#define FLAG_ITEM_GRANITE_CAVE_B2F_REPEL                            0x41D
+#define FLAG_UNUSED_0x41D                                           0x41D // Unused Flag
 #define FLAG_ITEM_GRANITE_CAVE_B2F_RARE_CANDY                       0x41E
 #define FLAG_ITEM_PETALBURG_WOODS_X_ATTACK                          0x41F
 #define FLAG_ITEM_PETALBURG_WOODS_GREAT_BALL                        0x420
@@ -1122,7 +1128,7 @@
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_TM_48                            0x432
 #define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                           0x433
 #define FLAG_ITEM_NEW_MAUVILLE_ESCAPE_ROPE                          0x434
-#define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0x435
+#define FLAG_UNUSED_0x435                                           0x435 // Unused Flag
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_4_SCANNER        0x436
 #define FLAG_ITEM_SCORCHED_SLAB_TM_11                               0x437
 #define FLAG_ITEM_METEOR_FALLS_B1F_2R_TM_02                         0x438
@@ -1142,7 +1148,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_WEST_TM_22                      0x446
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_1F_HARBOR_MAIL               0x447
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_ESCAPE_ROPE              0x448
-#define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_DIVE_BALL              0x449
+#define FLAG_UNUSED_0x449                                           0x449 // Unused Flag
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_13                    0x44A
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_1F_REVIVE                  0x44B
 #define FLAG_ITEM_ABANDONED_SHIP_CAPTAINS_OFFICE_STORAGE_KEY        0x44C
@@ -1179,7 +1185,7 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE                 0x46B
 #define FLAG_ITEM_AQUA_HIDEOUT_B1F_NUGGET                           0x46C
 #define FLAG_ITEM_MOSSDEEP_STEVENS_HOUSE_HM08                       0x46D // Unused Flag, leftover from R/S. HM08 is given to the player directly in Emerald
-#define FLAG_ITEM_ROUTE_119_NUGGET                                  0x46E
+#define FLAG_UNUSED_0x46E                                           0x46E // Unused Flag
 #define FLAG_ITEM_ROUTE_104_POTION                                  0x46F
 #define FLAG_UNUSED_0x470                                           0x470 // Unused Flag
 #define FLAG_ITEM_ROUTE_103_PP_UP                                   0x471

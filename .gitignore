@@ -36,3 +36,6 @@ porymap.project.cfg
 *.sna
 *.diff
 *.sym
+node_modules/
+package.json
+yarn.lock

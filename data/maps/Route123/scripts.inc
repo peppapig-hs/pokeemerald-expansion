@@ -1,3 +1,5 @@
+.set LOCALID_FISHERMAN, 44
+
 Route123_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
 	.byte 0
@@ -170,6 +172,40 @@ Route123_EventScript_RematchFernando::
 	msgbox Route123_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
 	end
 
+Route123_EventScript_Fisherman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_GYARADOSITE, Route123_EventScript_FishermanRiddleSolved
+	msgbox Route123_Text_FishermanRiddle, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	compare VAR_0x8004, PARTY_SIZE
+	goto_if_ge Route123_EventScript_FishermanExit
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	compare VAR_RESULT, SPECIES_MAGIKARP
+	goto_if_ne Route123_EventScript_FishermanExit
+	msgbox Route123_Text_FishermanCorrectAnswer, MSGBOX_DEFAULT
+	giveitem ITEM_GYARADOSITE
+	waitmessage
+	giveitem ITEM_EVIOLITE
+	setflag FLAG_RECEIVED_GYARADOSITE
+	goto Route123_EventScript_FishermanRiddleSolved
+	end
+
+Route123_EventScript_FishermanRiddleSolved::
+	msgbox Route123_Text_FishermanRiddleSolved, MSGBOX_DEFAULT
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceLeft
+	waitmovement 0
+	release
+	end
+
+Route123_EventScript_FishermanExit::
+	msgbox Route123_Text_FishermanExit, MSGBOX_DEFAULT
+	applymovement LOCALID_FISHERMAN, Common_Movement_FaceLeft
+	waitmovement 0
+	release
+	end
+
 Route123_Text_LoveGrassMonsHaveAny:
 	.string "I love GRASS-type POKéMON!\p"
 	.string "Do you have any GRASS-type POKéMON?$"
@@ -196,3 +232,18 @@ Route123_Text_RouteSignMtPyre:
 Route123_Text_BerryMastersHouse:
 	.string "BERRY MASTER'S HOUSE$"
 
+Route123_Text_FishermanRiddle:
+	.string "Please show me the BEST POKéMON!$"
+
+Route123_Text_FishermanRiddleSolved:
+	.string "Gyarados might not be Magikarp, but\n"
+	.string "it's almost as good!$"
+
+Route123_Text_FishermanExit:
+	.string "Your POKéMON sure seems strong…\p"
+	.string "But {COLOR RED}Magikarp{COLOR DARK_GRAY} is better!$"
+
+Route123_Text_FishermanCorrectAnswer:
+	.string "Ah! So you are a fellow\n"
+	.string "Magikarp admirer!\p"
+	.string "Please take these. You deserve them.$"

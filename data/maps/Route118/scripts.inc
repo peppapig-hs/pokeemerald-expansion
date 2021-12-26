@@ -94,6 +94,15 @@ Route118_EventScript_StevenTrigger::
 	applymovement LOCALID_STEVEN, Route118_Movement_StevenJumpLedge
 	waitmovement 0
 	delay 30
+	msgbox Route118_Text_StevenGiveMegaBracelet, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	msgbox Route118_Text_StevenExplainMegaBraceletAndGiveStones, MSGBOX_DEFAULT	
+	giveitem ITEM_SCEPTILITE
+	waitmessage
+	giveitem ITEM_BLAZIKENITE
+	waitmessage
+	giveitem ITEM_SWAMPERTITE
+	waitmessage
 	msgbox Route118_Text_StevenQuestions, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_0x8008, 0, Route118_EventScript_StevenExit0
@@ -243,6 +252,18 @@ Route118_EventScript_Deandre::
 	trainerbattle_single TRAINER_DEANDRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
 	msgbox Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE
 	end
+
+Route118_Text_StevenGiveMegaBracelet:
+	.string "STEVEN: Hi, {PLAYER}{KUN}!\p"
+	.string "It's me, STEVEN!\n"
+	.string "We met in the cave near DEWFORD.\p"
+	.string "You should take this from me…$"
+
+Route118_Text_StevenExplainMegaBraceletAndGiveStones:
+	.string "With this, and a Mega stone POKéMON\n"
+	.string "may hold, you can achieve\l"
+	.string "{COLOR BLUE}Mega Evolution{COLOR DARK_GRAY}!\p"
+	.string "Please take these Mega stones too.$"
 
 Route118_Text_StevenQuestions:
 	.string "STEVEN: Hi, {PLAYER}{KUN}!\p"

@@ -146,10 +146,6 @@ Route116_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
 
-Route117_EventScript_ItemGreatBall::
-	finditem ITEM_GREAT_BALL
-	end
-
 Route117_EventScript_ItemRevive::
 	finditem ITEM_REVIVE
 	end
@@ -176,10 +172,6 @@ Route119_EventScript_ItemLeafStone::
 
 Route119_EventScript_ItemRareCandy::
 	finditem ITEM_RARE_CANDY
-	end
-
-Route119_EventScript_ItemHyperPotion::
-	finditem ITEM_HYPER_POTION
 	end
 
 Route119_EventScript_ItemHyperPotion2::
@@ -346,20 +338,12 @@ RusturfTunnel_EventScript_ItemPokeBall::
 	finditem ITEM_POKE_BALL
 	end
 
-RusturfTunnel_EventScript_ItemMaxEther::
-	finditem ITEM_MAX_ETHER
-	end
-
 GraniteCave_1F_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
 
 GraniteCave_B1F_EventScript_ItemPokeBall::
 	finditem ITEM_POKE_BALL
-	end
-
-GraniteCave_B2F_EventScript_ItemRepel::
-	finditem ITEM_REPEL
 	end
 
 GraniteCave_B2F_EventScript_ItemRareCandy::
@@ -426,10 +410,6 @@ AbandonedShip_Rooms_B1F_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
 
-AbandonedShip_Rooms2_B1F_EventScript_ItemDiveBall::
-	finditem ITEM_DIVE_BALL
-	end
-
 AbandonedShip_Room_B1F_EventScript_ItemTM13::
 	finditem ITEM_TM13
 	end
@@ -440,10 +420,6 @@ AbandonedShip_Rooms2_1F_EventScript_ItemRevive::
 
 AbandonedShip_CaptainsOffice_EventScript_ItemStorageKey::
 	finditem ITEM_STORAGE_KEY
-	end
-
-AbandonedShip_HiddenFloorRooms_EventScript_ItemLuxuryBall::
-	finditem ITEM_LUXURY_BALL
 	end
 
 AbandonedShip_HiddenFloorRooms_EventScript_ItemScanner::
@@ -528,10 +504,6 @@ AquaHideout_B2F_EventScript_ItemNestBall::
 
 AquaHideout_B2F_EventScript_ItemMasterBall::
 	finditem ITEM_MASTER_BALL      // Unused
-	end
-
-Route119_EventScript_ItemNugget::
-	finditem ITEM_NUGGET
 	end
 
 Route119_EventScript_ItemMaxElixir::
@@ -656,4 +628,140 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
+	end
+
+SafariZone_Northwest_EventScript_ItemAbsolite::
+	finditem ITEM_ABSOLITE
+	end
+
+RusturfTunnel_EventScript_ItemAggronite::
+	finditem ITEM_AGGRONITE
+	end
+
+SlateportCity_EventScript_ItemAlakazite::
+	finditem ITEM_ALAKAZITE
+	end
+
+MtPyre_Summit_EventScript_ItemBanettite::
+	finditem ITEM_BANETTITE
+	end
+
+AbandonedShip_HiddenFloorRooms_EventScript_ItemBeedrillite::
+	finditem ITEM_BEEDRILLITE
+	end
+
+FortreeCity_EventScript_ItemGarchompite::
+	finditem ITEM_GARCHOMPITE
+	end
+
+ShoalCave_LowTideIceRoom_EventScript_ItemGlalitite::
+	finditem ITEM_GLALITITE
+	end
+
+Route127_EventScript_ItemHeracronite::
+	finditem ITEM_HERACRONITE
+	end
+
+LilycoveCity_EventScript_ItemLucarionite::
+	finditem ITEM_LUCARIONITE
+	end
+
+Route110_EventScript_ItemManectite::
+	finditem ITEM_MANECTITE
+	end
+
+Route117_EventScript_ItemMawilite::
+	finditem ITEM_MAWILITE
+	end
+
+MtPyre_6F_EventScript_ItemMedichamite::
+	finditem ITEM_MEDICHAMITE
+	end
+
+Route120_EventScript_ItemPidgeotite::
+	finditem ITEM_PIDGEOTITE
+	end
+
+Route124_EventScript_ItemPinsirite::
+	finditem ITEM_PINSIRITE
+	end
+
+SootopolisCity_EventScript_ItemSablenite::
+	finditem ITEM_SABLENITE
+	end
+
+GraniteCave_B2F_EventScript_ItemSteelixite::
+	finditem ITEM_STEELIXITE
+	end
+
+Route123_EventScript_ItemAbomasite::
+	finditem ITEM_ABOMASITE
+	end
+
+MeteorFalls_1F_2R_EventScript_ItemAerodactylite::
+	finditem ITEM_AERODACTYLITE
+	end
+
+NewMauville_Inside_EventScript_ItemAmpharosite::
+	finditem ITEM_AMPHAROSITE
+	end
+
+FieryPath_EventScript_ItemCharizarditeX::
+	finditem ITEM_CHARIZARDITE_X
+	end
+
+ScorchedSlab_EventScript_ItemCharizarditeY::
+	finditem ITEM_CHARIZARDITE_Y
+	end
+
+LavaridgeTown_EventScript_ItemHoundoominite::
+	finditem ITEM_HOUNDOOMINITE
+	end
+
+PacifidlogTown_EventScript_ItemKangaskhanite::
+	finditem ITEM_KANGASKHANITE
+	end
+
+AbandonedShip_Rooms2_B1F_EventScript_ItemLopunnite::
+	finditem ITEM_LOPUNNITE
+	end
+
+LittlerootTown_EventScript_ItemMewtwoniteX::
+	finditem ITEM_MEWTWONITE_X
+	end
+
+EverGrandeCity_EventScript_ItemMewtwoniteY::
+	finditem ITEM_MEWTWONITE_Y
+	end
+
+Route119_EventScript_ItemScizorite::
+	finditem ITEM_SCIZORITE
+	end
+
+JaggedPass_EventScript_ItemTyranitarite::
+	finditem ITEM_TYRANITARITE
+	end
+
+Route119_EventScript_ItemVenusaurite::
+	finditem ITEM_VENUSAURITE
+	end
+
+Route104_EventScript_ItemAudinite::
+	finditem ITEM_AUDINITE
+	end
+
+SSTidalLowerDeck_EventScript_ItemBlastoisinite::
+	finditem ITEM_BLASTOISINITE
+	end
+
+MagmaHideout_2F_3R_EventScript_ItemCameruptite::
+	finditem ITEM_CAMERUPTITE
+	end
+
+AquaHideout_B2F_EventScript_ItemSharpedonite::
+	finditem ITEM_SHARPEDONITE
+	end
+
+MtPyre_3F_EventScript_ItemGengarite::
+	finditem ITEM_GENGARITE
 	end

@@ -477,6 +477,7 @@ SootopolisCity_Movement_GroudonIdle:
 @ If not at PokeCenter, assumed to have arrived via Dive
 SootopolisCity_EventScript_StartRayquazaScene::
 	lockall
+	call SootopolisCity_EventScript_ClearMegaStoneFlags
 	special StorePlayerCoordsInVars
 	goto_if_ne VAR_0x8004, 43, SootopolisCity_EventScript_RayquazaSceneFromDive
 	goto_if_ne VAR_0x8005, 32, SootopolisCity_EventScript_RayquazaSceneFromDive
@@ -1393,6 +1394,23 @@ SootopolisCity_EventScript_MaxieArchieLeave::
 	waitstate
 	releaseall
 	end
+
+SootopolisCity_EventScript_ClearMegaStoneFlags::
+	clearflag FLAG_ITEM_ROUTE_123_ABOMASITE
+	clearflag FLAG_ITEM_METEOR_FALLS_1F_2R_AERODACTYLITE
+	clearflag FLAG_ITEM_NEW_MAUVILLE_AMPHAROSITE
+	clearflag FLAG_ITEM_FIERY_PATH_CHARIZARDITE_X
+	clearflag FLAG_ITEM_SCORCHED_SLAB_CHARIZARDITE_Y
+	clearflag FLAG_RECEIVED_GARDEVOIRITE
+	clearflag FLAG_ITEM_LAVARIDGE_TOWN_HOUNDOOMINITE
+	clearflag FLAG_ITEM_PACIFIDLOG_TOWN_KANGASKHANITE
+	clearflag FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_LOPUNNITE
+	clearflag FLAG_ITEM_LITTLEROOT_TOWN_MEWTWONITE_X
+	clearflag FLAG_ITEM_EVERGRANDE_CITY_MEWTWONITE_Y
+	clearflag FLAG_ITEM_ROUTE_119_SCIZORITE
+	clearflag FLAG_ITEM_JAGGED_PASS_TYRANITARITE
+	clearflag FLAG_ITEM_ROUTE_119_VENUSAURITE
+	return
 
 @ Unused
 SootopolisCity_Movement_Levitate::

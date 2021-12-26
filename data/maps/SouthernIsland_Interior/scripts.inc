@@ -84,6 +84,17 @@ SouthernIsland_Interior_EventScript_Lati::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SouthernIsland_Interior_EventScript_LatiDefeated
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SouthernIsland_Interior_EventScript_RanFromLati
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SouthernIsland_Interior_EventScript_RanFromLati
+	delay 20
+	playse SE_M_DETECT
+	dofieldeffectsparkle 13, 11, 0
+	waitfieldeffect FLDEFF_SPARKLE
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48
+	waitmovement 0
+	giveitem ITEM_LATIOSITE
+	giveitem ITEM_LATIASITE
 	setflag FLAG_CAUGHT_LATIAS_OR_LATIOS
 	releaseall
 	end

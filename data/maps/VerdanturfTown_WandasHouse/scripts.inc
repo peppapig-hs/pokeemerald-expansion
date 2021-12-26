@@ -41,6 +41,7 @@ VerdanturfTown_WandasHouse_EventScript_WandasBoyfriend::
 VerdanturfTown_WandasHouse_EventScript_Wanda::
 	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_GARDEVOIRITE, VerdanturfTown_WandasHouse_EventScript_WandaGiveGardevoirite
 	goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, VerdanturfTown_WandasHouse_EventScript_WandaDontWorry
 	goto_if_set FLAG_DEFEATED_WALLY_MAUVILLE, VerdanturfTown_WandasHouse_EventScript_MeetWanda
 	msgbox VerdanturfTown_WandasHouse_Text_DontWorryAboutWally, MSGBOX_DEFAULT
@@ -54,6 +55,14 @@ VerdanturfTown_WandasHouse_EventScript_MeetWanda::
 
 VerdanturfTown_WandasHouse_EventScript_WandaDontWorry::
 	msgbox VerdanturfTown_WandasHouse_Text_DontWorryAboutWally, MSGBOX_DEFAULT
+	release
+	end
+
+VerdanturfTown_WandasHouse_EventScript_WandaGiveGardevoirite::
+	msgbox VerdanturfTown_WandasHouse_Text_GiveGardevoirite, MSGBOX_DEFAULT
+	giveitem ITEM_GARDEVOIRITE
+	setflag FLAG_RECEIVED_GARDEVOIRITE
+	msgbox VerdanturfTown_WandasHouse_Text_WandaThankYou, MSGBOX_DEFAULT
 	release
 	end
 
@@ -166,3 +175,19 @@ VerdanturfTown_WandasHouse_Text_WallyWasInEverGrande:
 	.string "His parents in PETALBURG would be\n"
 	.string "astonished to hear that!$"
 
+VerdanturfTown_WandasHouse_Text_GiveGardevoirite:
+	.string "WANDA: Why, it feels like it's been\n"
+	.string "ages since we saw you last!\p"
+	.string "What wonderful timing! I was thinking\n"
+	.string "that I wanted to give this to you…$"
+
+VerdanturfTown_WandasHouse_Text_WandaThankYou:
+	.string "I didn't really thank you\n"
+	.string "properly when you helped smash those\l"
+	.string "rocks in the tunnel.\p"
+	.string "Do you remember how light came\n"
+	.string "falling out of the sky a while ago?\p"
+	.string "I found this in the yard.\p"
+	.string "It's a pretty stone, and I'm sure\n"
+	.string "your POKéMON would be delighted\l"
+	.string "if you let one of them hold it!$"

@@ -189,6 +189,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
 	setvar VAR_SCOTT_BF_CALL_STEP_COUNTER, 0
 	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	call LittlerootTown_ProfessorBirchsLab_EventScript_ClearPostGameFlag
 	releaseall
 	end
 
@@ -644,6 +645,19 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
 	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
 	releaseall
 	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ClearPostGameFlag::
+	@ Mega Stones After Defeating Champion
+	clearflag FLAG_ITEM_ROUTE_104_AUDINITE
+	clearflag FLAG_ITEM_SS_TIDAL_LOWER_DECK_BLASTOISINITE
+	clearflag FLAG_ITEM_MAGMA_HIDEOUT_2F_3R_CAMERUPTITE
+	clearflag FLAG_RECEIVED_GALLADITE
+	clearflag FLAG_ITEM_MT_PYRE_3F_GENGARITE
+	clearflag FLAG_RECEIVED_METAGROSSITE
+	clearflag FLAG_RECEIVED_SALAMENCITE
+	clearflag FLAG_ITEM_AQUA_HIDEOUT_B2F_SHARPEDONITE
+	clearflag FLAG_RECEIVED_DIANCITE
+	return
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork:
 	.string "Hunh? PROF. BIRCH?\p"

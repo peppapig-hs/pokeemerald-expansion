@@ -45,6 +45,7 @@ MeteorFalls_1F_2R_EventScript_Jay::
 	trainerbattle_double TRAINER_JOHN_AND_JAY_1, MeteorFalls_1F_2R_Text_JayIntro, MeteorFalls_1F_2R_Text_JayDefeat, MeteorFalls_1F_2R_Text_JayNotEnoughMons, MeteorFalls_1F_2R_EventScript_RegisterJay
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MeteorFalls_1F_2R_EventScript_RematchJay
+	call_if_unset FLAG_RECEIVED_SALAMENCITE, MeteorFalls_1F_2R_EventScript_GiveSalamencite
 	msgbox MeteorFalls_1F_2R_Text_JayPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -59,6 +60,12 @@ MeteorFalls_1F_2R_EventScript_RematchJay::
 	trainerbattle_rematch_double TRAINER_JOHN_AND_JAY_1, MeteorFalls_1F_2R_Text_JayRematchIntro, MeteorFalls_1F_2R_Text_JayRematchDefeat, MeteorFalls_1F_2R_Text_JayRematchNotEnoughMons
 	msgbox MeteorFalls_1F_2R_Text_JayPostRematch, MSGBOX_AUTOCLOSE
 	end
+
+MeteorFalls_1F_2R_EventScript_GiveSalamencite::
+	msgbox MeteorFalls_1F_2R_Text_GiveSalamencite, MSGBOX_DEFAULT
+	giveitem ITEM_SALAMENCITE
+	setflag FLAG_RECEIVED_SALAMENCITE
+	return
 
 MeteorFalls_1F_2R_Text_NicolasIntro:
 	.string "This is where we DRAGON users do our\n"
@@ -181,3 +188,5 @@ MeteorFalls_1F_2R_Text_JayRematchNotEnoughMons:
 	.string "If you'd care to battle with us, you'll\n"
 	.string "have to come back with more POKéMON.$"
 
+MeteorFalls_1F_2R_Text_GiveSalamencite:
+	.string "JAY: Here is a gift for you.$"

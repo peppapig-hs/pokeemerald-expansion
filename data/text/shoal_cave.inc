@@ -34,6 +34,12 @@ ShoalCave_LowTideEntranceRoom_Text_ExplainShellBell:
 	.string "You can get its ingredients every day,\n"
 	.string "so I can make you more.$"
 
+ShoalCave_LowTideEntranceRoom_Text_GiveSlowbronite:
+	.string "And…\n"
+	.string "I'm not quite sure what this is,\l"
+	.string "but I got this recently.\p"
+	.string "If you like, please take this, too.$"
+
 ShoalCave_LowTideEntranceRoom_Text_WantedToMakeShellBell:
 	.string "Oh… Is that so…\n"
 	.string "I wanted to make a SHELL BELL…$"
