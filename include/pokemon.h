@@ -17,7 +17,8 @@ struct PokemonSubstruct0
     /*0x08*/ u8 ppBonuses;
     /*0x09*/ u8 friendship;
     /*0x0A*/ u16 pokeball:5; //31 balls
-             u16 filler:11;
+             u8 nature:5;
+             u16 filler:6;
 }; /* size = 12 */
 
 struct PokemonSubstruct1
@@ -198,6 +199,7 @@ struct BattlePokemon
     /*0x4D*/ u32 status1;
     /*0x51*/ u32 status2;
     /*0x55*/ u32 otId;
+    /*0x59*/ u8 nature:5;
 };
 
 struct BaseStats
@@ -429,7 +431,7 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
 bool32 IsHMMove2(u16 move);
 bool8 IsMonSpriteNotFlipped(u16 species);
 s8 GetMonFlavorRelation(struct Pokemon *mon, u8 flavor);
-s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor);
+s8 GetFlavorRelationByNature(u8 nature, u8 flavor);
 bool8 IsTradedMon(struct Pokemon *mon);
 bool8 IsOtherTrainer(u32 otId, u8 *otName);
 void MonRestorePP(struct Pokemon *mon);

@@ -3181,6 +3181,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u32 personality;
     u32 value;
     u16 checksum;
+    u8 nature;
 
     ZeroBoxMonData(boxMon);
 
@@ -3281,6 +3282,9 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         value = personality & 1;
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
+
+    nature = personality % NUM_NATURES;
+    SetBoxMonData(boxMon, MON_DATA_NATURE, &nature);
 
     GiveBoxMonInitialMoveset(boxMon);
 }
@@ -4687,6 +4691,9 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
                 | (substruct3->worldRibbon << 26);
         }
         break;
+    case MON_DATA_NATURE:
+        retVal = substruct0->nature;
+        break;
     default:
         break;
     }
@@ -5005,6 +5012,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         substruct3->spDefenseIV = (ivs >> 25) & MAX_IV_MASK;
         break;
     }
+    case MON_DATA_NATURE:
+        SET8(substruct0->nature);
+        break;
     default:
         break;
     }
@@ -5313,6 +5323,7 @@ void PokemonToBattleMon(struct Pokemon *src, struct BattlePokemon *dst)
         dst->statStages[i] = DEFAULT_STAT_STAGE;
 
     dst->status2 = 0;
+    dst->nature = GetMonData(src, MON_DATA_NATURE, NULL);
 }
 
 void CopyPlayerPartyMonToBattleData(u8 battlerId, u8 partyIndex)
@@ -6257,7 +6268,7 @@ u8 *UseStatIncreaseItem(u16 itemId)
 
 u8 GetNature(struct Pokemon *mon)
 {
-    return GetMonData(mon, MON_DATA_PERSONALITY, 0) % NUM_NATURES;
+    return GetMonData(mon, MON_DATA_NATURE, 0);
 }
 
 u8 GetNatureFromPersonality(u32 personality)
@@ -7421,9 +7432,8 @@ s8 GetMonFlavorRelation(struct Pokemon *mon, u8 flavor)
     return gPokeblockFlavorCompatibilityTable[nature * FLAVOR_COUNT + flavor];
 }
 
-s8 GetFlavorRelationByPersonality(u32 personality, u8 flavor)
+s8 GetFlavorRelationByNature(u8 nature, u8 flavor)
 {
-    u8 nature = GetNatureFromPersonality(personality);
     return gPokeblockFlavorCompatibilityTable[nature * FLAVOR_COUNT + flavor];
 }
 
