@@ -537,3 +537,14 @@ gSpecials::
 	def_special TrySetBattleTowerLinkType
 	def_special SetTotemBoost
     def_special GetLeadMonIndex
+	def_special BufferChosenMonAllEVs
+	def_special GetChosenMonEV
+	def_special GetChosenMonLeftEVs
+	def_special IncreaseChosenMonEV
+	def_special ResetChosenMonEVs
+	def_special BufferChosenMonAllIVs
+	def_special SetChosenMonIV
+	def_special CalculateIVSpreadPrice
+	def_special SetChosenMonIVSpread
+	def_special SetChosenMonNature
+	def_special ChangeChosenMonAbility

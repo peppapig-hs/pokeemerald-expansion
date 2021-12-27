@@ -3139,4 +3139,64 @@ extern const u8 gText_PkmnForSwap[];
 extern const u8 gText_SamePkmnInPartyAlready[];
 extern const u8 gText_Cancel3[];
 
+extern const u8 gText_TrainingEVs[];
+extern const u8 gText_ResetEVs[];
+extern const u8 gText_TrainingIVs[];
+extern const u8 gText_ChangeNature[];
+extern const u8 gText_ChangeAbility[];
+extern const u8 gText_SuperTrainingInfo[];
+
+extern const u8 gText_HPStat[];
+extern const u8 gText_AtkStat[];
+extern const u8 gText_DefStat[];
+extern const u8 gText_SpdStat[];
+extern const u8 gText_SpAtkStat[];
+extern const u8 gText_SpDefStat[];
+
+extern const u8 gText_4EV[];
+extern const u8 gText_8EV[];
+extern const u8 gText_12EV[];
+extern const u8 gText_64EV[];
+extern const u8 gText_128EV[];
+extern const u8 gText_252EV[];
+
+extern const u8 gText_ChangeIVs[];
+extern const u8 gText_ChangeHPType[];
+
+extern const u8 gText_0IV[];
+extern const u8 gText_1IV[];
+extern const u8 gText_14IV[];
+extern const u8 gText_15IV[];
+extern const u8 gText_30IV[];
+extern const u8 gText_31IV[];
+
+extern const u8 gText_FightingType[];
+extern const u8 gText_FlyingType[];
+extern const u8 gText_PoisonType[];
+extern const u8 gText_GroundType[];
+extern const u8 gText_RockType[];
+extern const u8 gText_BugType[];
+extern const u8 gText_GhostType[];
+extern const u8 gText_SteelType[];
+extern const u8 gText_FireType[];
+extern const u8 gText_WaterType[];
+extern const u8 gText_GrassType[];
+extern const u8 gText_ElectricType[];
+extern const u8 gText_PsychicType[];
+extern const u8 gText_IceType[];
+extern const u8 gText_DragonType[];
+extern const u8 gText_DarkType[];
+
+extern const u8 gText_AtkUp[];
+extern const u8 gText_DefUp[];
+extern const u8 gText_SpdUp[];
+extern const u8 gText_SpAtkUp[];
+extern const u8 gText_SpDefUp[];
+
+extern const u8 gText_AtkDown[];
+extern const u8 gText_DefDown[];
+extern const u8 gText_SpdDown[];
+extern const u8 gText_SpAtkDown[];
+extern const u8 gText_SpDefDown[];
+
 #endif // GUARD_STRINGS_H

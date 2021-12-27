@@ -1110,7 +1110,10 @@ void PrintMenuActionTextsAtPos(u8 windowId, u8 fontId, u8 left, u8 top, u8 lineH
 {
     u8 i;
     for (i = 0; i < itemCount; i++)
-        AddTextPrinterParameterized(windowId, fontId, menuActions[i].text, left, (lineHeight * i) + top, TEXT_SKIP_DRAW, NULL);
+    {
+        StringExpandPlaceholders(gStringVar4, menuActions[i].text);
+        AddTextPrinterParameterized(windowId, fontId, gStringVar4, left, (lineHeight * i) + top, TEXT_SKIP_DRAW, NULL);
+    }
     CopyWindowToVram(windowId, COPYWIN_GFX);
 }
 

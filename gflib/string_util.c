@@ -7,6 +7,9 @@ EWRAM_DATA u8 gStringVar1[0x100] = {0};
 EWRAM_DATA u8 gStringVar2[0x100] = {0};
 EWRAM_DATA u8 gStringVar3[0x100] = {0};
 EWRAM_DATA u8 gStringVar4[0x3E8] = {0};
+EWRAM_DATA u8 gStringVarExtra1[0x100] = {0};
+EWRAM_DATA u8 gStringVarExtra2[0x100] = {0};
+EWRAM_DATA u8 gStringVarExtra3[0x100] = {0};
 EWRAM_DATA static u8 sUnknownStringVar[16] = {0};
 
 static const u8 sDigits[] = __("0123456789ABCDEF");
@@ -445,6 +448,21 @@ static const u8 *ExpandPlaceholder_StringVar3(void)
     return gStringVar3;
 }
 
+static const u8 *ExpandPlaceholder_StringVarExtra1(void)
+{
+    return gStringVarExtra1;
+}
+
+static const u8 *ExpandPlaceholder_StringVarExtra2(void)
+{
+    return gStringVarExtra2;
+}
+
+static const u8 *ExpandPlaceholder_StringVarExtra3(void)
+{
+    return gStringVarExtra3;
+}
+
 static const u8 *ExpandPlaceholder_KunChan(void)
 {
     if (gSaveBlock2Ptr->playerGender == MALE)
@@ -502,20 +520,23 @@ const u8 *GetExpandedPlaceholder(u32 id)
 
     static const ExpandPlaceholderFunc funcs[] =
     {
-        [PLACEHOLDER_ID_UNKNOWN]      = ExpandPlaceholder_UnknownStringVar,
-        [PLACEHOLDER_ID_PLAYER]       = ExpandPlaceholder_PlayerName,
-        [PLACEHOLDER_ID_STRING_VAR_1] = ExpandPlaceholder_StringVar1,
-        [PLACEHOLDER_ID_STRING_VAR_2] = ExpandPlaceholder_StringVar2,
-        [PLACEHOLDER_ID_STRING_VAR_3] = ExpandPlaceholder_StringVar3,
-        [PLACEHOLDER_ID_KUN]          = ExpandPlaceholder_KunChan,
-        [PLACEHOLDER_ID_RIVAL]        = ExpandPlaceholder_RivalName,
-        [PLACEHOLDER_ID_VERSION]      = ExpandPlaceholder_Version,
-        [PLACEHOLDER_ID_AQUA]         = ExpandPlaceholder_Aqua,
-        [PLACEHOLDER_ID_MAGMA]        = ExpandPlaceholder_Magma,
-        [PLACEHOLDER_ID_ARCHIE]       = ExpandPlaceholder_Archie,
-        [PLACEHOLDER_ID_MAXIE]        = ExpandPlaceholder_Maxie,
-        [PLACEHOLDER_ID_KYOGRE]       = ExpandPlaceholder_Kyogre,
-        [PLACEHOLDER_ID_GROUDON]      = ExpandPlaceholder_Groudon,
+        [PLACEHOLDER_ID_UNKNOWN]            = ExpandPlaceholder_UnknownStringVar,
+        [PLACEHOLDER_ID_PLAYER]             = ExpandPlaceholder_PlayerName,
+        [PLACEHOLDER_ID_STRING_VAR_1]       = ExpandPlaceholder_StringVar1,
+        [PLACEHOLDER_ID_STRING_VAR_2]       = ExpandPlaceholder_StringVar2,
+        [PLACEHOLDER_ID_STRING_VAR_3]       = ExpandPlaceholder_StringVar3,
+        [PLACEHOLDER_ID_STRING_VAR_EXTRA_1] = ExpandPlaceholder_StringVarExtra1,
+        [PLACEHOLDER_ID_STRING_VAR_EXTRA_2] = ExpandPlaceholder_StringVarExtra2,
+        [PLACEHOLDER_ID_STRING_VAR_EXTRA_3] = ExpandPlaceholder_StringVarExtra3,
+        [PLACEHOLDER_ID_KUN]                = ExpandPlaceholder_KunChan,
+        [PLACEHOLDER_ID_RIVAL]              = ExpandPlaceholder_RivalName,
+        [PLACEHOLDER_ID_VERSION]            = ExpandPlaceholder_Version,
+        [PLACEHOLDER_ID_AQUA]               = ExpandPlaceholder_Aqua,
+        [PLACEHOLDER_ID_MAGMA]              = ExpandPlaceholder_Magma,
+        [PLACEHOLDER_ID_ARCHIE]             = ExpandPlaceholder_Archie,
+        [PLACEHOLDER_ID_MAXIE]              = ExpandPlaceholder_Maxie,
+        [PLACEHOLDER_ID_KYOGRE]             = ExpandPlaceholder_Kyogre,
+        [PLACEHOLDER_ID_GROUDON]            = ExpandPlaceholder_Groudon,
     };
 
     if (id >= ARRAY_COUNT(funcs))

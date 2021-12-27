@@ -776,6 +776,70 @@ static const struct MenuAction MultichoiceList_Exit[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultichoiceList_SuperTrainingMenu[] =
+{
+    {gText_TrainingEVs},
+    {gText_ResetEVs},
+    {gText_TrainingIVs},
+    {gText_ChangeNature},
+    {gText_ChangeAbility},
+    {gText_SuperTrainingInfo}
+};
+
+static const struct MenuAction MultichoiceList_SuperTrainingMenuStat[] =
+{
+    {gText_HPStat},
+    {gText_AtkStat},
+    {gText_DefStat},
+    {gText_SpdStat},
+    {gText_SpAtkStat},
+    {gText_SpDefStat},
+};
+
+static const struct MenuAction MultichoiceList_SuperTrainingMenuEVValue[] =
+{
+    {gText_4EV},
+    {gText_8EV},
+    {gText_12EV},
+    {gText_64EV},
+    {gText_128EV},
+    {gText_252EV},
+};
+
+static const struct MenuAction MultichoiceList_SuperTrainingMenuIVMenu[] =
+{
+    {gText_ChangeIVs},
+    {gText_ChangeHPType},
+};
+
+static const struct MenuAction MultichoiceList_SuperTrainingMenuIVValue[] =
+{
+    {gText_0IV},
+    {gText_1IV},
+    {gText_14IV},
+    {gText_15IV},
+    {gText_30IV},
+    {gText_31IV},
+};
+
+static const struct MenuAction MultichoiceList_SuperTrainingMenuStatUp[] =
+{
+    {gText_AtkUp},
+    {gText_DefUp},
+    {gText_SpdUp},
+    {gText_SpAtkUp},
+    {gText_SpDefUp},
+};
+
+static const struct MenuAction MultichoiceList_SuperTrainingMenuStatDown[] =
+{
+    {gText_AtkDown},
+    {gText_DefDown},
+    {gText_SpdDown},
+    {gText_SpAtkDown},
+    {gText_SpDefDown},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -898,6 +962,13 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_SUPER_TRAINING_MENU]        = MULTICHOICE(MultichoiceList_SuperTrainingMenu),
+    [MULTI_SUPER_TRAINING_MENU_STAT]   = MULTICHOICE(MultichoiceList_SuperTrainingMenuStat),
+    [MULTI_SUPER_TRAINING_MENU_EV_VALUE]   = MULTICHOICE(MultichoiceList_SuperTrainingMenuEVValue),
+    [MULTI_SUPER_TRAINING_MENU_IV_MENU]    = MULTICHOICE(MultichoiceList_SuperTrainingMenuIVMenu),
+    [MULTI_SUPER_TRAINING_MENU_IV_VALUE]   = MULTICHOICE(MultichoiceList_SuperTrainingMenuIVValue),
+    [MULTI_SUPER_TRAINING_MENU_STAT_UP]    = MULTICHOICE(MultichoiceList_SuperTrainingMenuStatUp),
+    [MULTI_SUPER_TRAINING_MENU_STAT_DOWN]  = MULTICHOICE(MultichoiceList_SuperTrainingMenuStatDown),
 };
 
 const u8 *const gStdStrings[] =

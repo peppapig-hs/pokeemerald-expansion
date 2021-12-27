@@ -1943,3 +1943,63 @@ const u8 gText_EVO_NONE[]                           = _("{STR_VAR_1} has no evol
 const u8 gText_FORMS_Buttons_PE[]                   = _("{A_BUTTON}EVOLUTIONS");
 const u8 gText_FORMS_Buttons_Decapped_PE[]          = _("{A_BUTTON}Evolutions");
 const u8 gText_FORMS_NONE[]                         = _("{STR_VAR_1} has no alternate forms.");
+
+const u8 gText_TrainingEVs[] = _("Training EVs");
+const u8 gText_ResetEVs[] = _("Reset EVs");
+const u8 gText_TrainingIVs[] = _("Training IVs");
+const u8 gText_ChangeNature[] = _("Change Nature");
+const u8 gText_ChangeAbility[] = _("Change Ability");
+const u8 gText_SuperTrainingInfo[] = _("More Info");
+
+const u8 gText_HPStat[] = _("HP{CLEAR_TO 0x36}{STR_VAR_1}");
+const u8 gText_AtkStat[] = _("Attack{CLEAR_TO 0x36}{STR_VAR_2}");
+const u8 gText_DefStat[] = _("Defense{CLEAR_TO 0x36}{STR_VAR_3}");
+const u8 gText_SpdStat[] = _("Speed{CLEAR_TO 0x36}{STR_VAR_EXT_1}");
+const u8 gText_SpAtkStat[] = _("Sp. Atk{CLEAR_TO 0x36}{STR_VAR_EXT_2}");
+const u8 gText_SpDefStat[] = _("Sp. Def{CLEAR_TO 0x36}{STR_VAR_EXT_3}");
+
+const u8 gText_4EV[] = _("+4 EVs");
+const u8 gText_8EV[] = _("+8 EVs");
+const u8 gText_12EV[] = _("+12 EVs");
+const u8 gText_64EV[] = _("+64 EVs");
+const u8 gText_128EV[] = _("+128 EVs");
+const u8 gText_252EV[] = _("+252 EVs");
+
+const u8 gText_ChangeIVs[] = _("Change IVs");
+const u8 gText_ChangeHPType[] = _("Change Hidden Power Type");
+
+const u8 gText_0IV[] = _("0 IVs");
+const u8 gText_1IV[] = _("1 IVs");
+const u8 gText_14IV[] = _("14 IVs");
+const u8 gText_15IV[] = _("15 IVs");
+const u8 gText_30IV[] = _("30 IVs");
+const u8 gText_31IV[] = _("31 IVs");
+
+const u8 gText_FightingType[] = _("Fighting Type");
+const u8 gText_FlyingType[] = _("Flying Type");
+const u8 gText_PoisonType[] = _("Poison Type");
+const u8 gText_GroundType[] = _("Ground Type");
+const u8 gText_RockType[] = _("Rock Type");
+const u8 gText_BugType[] = _("Bug Type");
+const u8 gText_GhostType[] = _("Ghost Type");
+const u8 gText_SteelType[] = _("Steel Type");
+const u8 gText_FireType[] = _("Fire Type");
+const u8 gText_WaterType[] = _("Water Type");
+const u8 gText_GrassType[] = _("Grass Type");
+const u8 gText_ElectricType[] = _("Electric Type");
+const u8 gText_PsychicType[] = _("Psychic Type");
+const u8 gText_IceType[] = _("Ice Type");
+const u8 gText_DragonType[] = _("Dragon Type");
+const u8 gText_DarkType[] = _("Dark Type");
+
+const u8 gText_AtkUp[] = _("+Attack");
+const u8 gText_DefUp[] = _("+Defense");
+const u8 gText_SpdUp[] = _("+Speed");
+const u8 gText_SpAtkUp[] = _("+Sp. Atk");
+const u8 gText_SpDefUp[] = _("+Sp. Def");
+
+const u8 gText_AtkDown[] = _("-Attack");
+const u8 gText_DefDown[] = _("-Defense");
+const u8 gText_SpdDown[] = _("-Speed");
+const u8 gText_SpAtkDown[] = _("-Sp. Atk");
+const u8 gText_SpDefDown[] = _("-Sp. Def");

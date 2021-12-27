@@ -2434,6 +2434,16 @@ void ShowScrollableMultichoice(void)
             task->tKeepOpenAfterSelect = FALSE;
             task->tTaskId = taskId;
             break;
+        case SCROLL_MULTI_SUPER_TRAINING_HIDDEN_POWER_TYPE:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 16;
+            task->tLeft = 1;
+            task->tTop = 1;
+            task->tWidth = 12;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tTaskId = taskId;
+            break;
         default:
             gSpecialVar_Result = MULTI_B_PRESSED;
             DestroyTask(taskId);
@@ -2594,6 +2604,25 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Underpowered,
         gText_WhenInDanger,
         gText_Exit
+    },
+    [SCROLL_MULTI_SUPER_TRAINING_HIDDEN_POWER_TYPE] =
+    {
+        gText_FightingType,
+        gText_FlyingType,
+        gText_PoisonType,
+        gText_GroundType,
+        gText_RockType,
+        gText_BugType,
+        gText_GhostType,
+        gText_SteelType,
+        gText_FireType,
+        gText_WaterType,
+        gText_GrassType,
+        gText_ElectricType,
+        gText_PsychicType,
+        gText_IceType,
+        gText_DragonType,
+        gText_DarkType
     }
 };
 
@@ -4371,4 +4400,195 @@ void SetPlayerGotFirstFans(void)
 u8 Script_TryGainNewFanFromCounter(void)
 {
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
+}
+
+// Buffer all party mon's EVs to all string variables
+void BufferChosenMonAllEVs(void)
+{
+    u8 HPEV, AtkEV, DefEV, SpdEV, SpAtkEV, SpDefEV;
+
+    HPEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, NULL);
+    AtkEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, NULL);
+    DefEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, NULL);
+    SpdEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, NULL);
+    SpAtkEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, NULL);
+    SpDefEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, NULL);
+
+    ConvertIntToDecimalStringN(gStringVar1, HPEV, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar2, AtkEV, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar3, DefEV, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVarExtra1, SpdEV, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVarExtra2, SpAtkEV, STR_CONV_MODE_LEFT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVarExtra3, SpDefEV, STR_CONV_MODE_LEFT_ALIGN, 3);
+}
+
+// Return chosen mon's EV to gSpecialVar_0x8006
+u8 GetChosenMonEV(void) {
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV + gSpecialVar_0x8005, NULL);
+}
+
+// Return how many EVs chosen mon can train
+u8 GetChosenMonLeftEVs(void) {
+    u8 i;
+    u16 leftEVs;
+
+    leftEVs = MAX_TOTAL_EVS;
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        leftEVs -= GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV + i, NULL);
+    }
+
+    if (leftEVs > 252 - GetChosenMonEV())
+    {
+        leftEVs = 252 - GetChosenMonEV();
+    }
+
+    return (u8)leftEVs;
+}
+
+// Increase chosen mon's EV value capped at 252
+void IncreaseChosenMonEV(void)
+{
+    u8 currentEV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV + gSpecialVar_0x8005, NULL);
+    u8 increaseEV = gSpecialVar_0x8006;
+    u8 newEV;
+
+    if (increaseEV > GetChosenMonLeftEVs())
+    {
+        increaseEV = GetChosenMonLeftEVs();
+    }
+
+    newEV = currentEV + increaseEV;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV + gSpecialVar_0x8005, &newEV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Reset all chosen mon's EVs to 0
+void ResetChosenMonEVs(void)
+{
+    u8 i;
+    u8 zero = 0;
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV + i, &zero);
+    }
+
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Buffer all party mon's IVs to all string variables
+void BufferChosenMonAllIVs(void)
+{
+    u8 HPIV, AtkIV, DefIV, SpdIV, SpAtkIV, SpDefIV;
+
+    HPIV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV, NULL);
+    AtkIV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_IV, NULL);
+    DefIV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV, NULL);
+    SpdIV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, NULL);
+    SpAtkIV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV, NULL);
+    SpDefIV = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV, NULL);
+
+    ConvertIntToDecimalStringN(gStringVar1, HPIV, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar2, AtkIV, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVar3, DefIV, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVarExtra1, SpdIV, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVarExtra2, SpAtkIV, STR_CONV_MODE_LEFT_ALIGN, 2);
+    ConvertIntToDecimalStringN(gStringVarExtra3, SpDefIV, STR_CONV_MODE_LEFT_ALIGN, 2);
+}
+
+// Set chosen mon's IV value
+void SetChosenMonIV(void)
+{
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV + gSpecialVar_0x8005, &gSpecialVar_0x8006);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Calculate super training IV spread price
+void CalculateIVSpreadPrice(void)
+{
+    u8 i;
+    u8 spread[NUMBER_OF_MON_TYPES - 3][NUM_STATS] =
+    {
+        { 31, 31, 30, 30, 30, 30 }, // Fighting
+        { 31, 31, 31, 30, 30, 30 }, // Flying
+        { 31, 31, 30, 30, 30, 31 }, // Poison
+        { 31, 31, 31, 30, 30, 31 }, // Ground
+        { 31, 31, 30, 31, 30, 30 }, // Rock
+        { 31, 31, 31, 31, 30, 30 }, // Bug
+        { 31, 31, 30, 31, 30, 31 }, // Ghost
+        { 31, 31, 31, 31, 30, 31 }, // Steel
+        { 31, 30, 31, 30, 31, 30 }, // Fire
+        { 31, 31, 31, 30, 31, 30 }, // Water
+        { 31, 30, 31, 30, 31, 31 }, // Grass
+        { 31, 31, 31, 30, 31, 31 }, // Electric
+        { 31, 30, 31, 31, 31, 30 }, // Psychic
+        { 31, 30, 30, 31, 31, 31 }, // Ice
+        { 31, 30, 31, 31, 31, 31 }, // Dragon
+        { 31, 31, 31, 31, 31, 31 }  // Dark
+    };
+    u32 price;
+
+    price = 0;
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        price += spread[gSpecialVar_0x8005][i];
+    }
+
+    gSpecialVar_0x8009 = price * 100;
+}
+
+// Set chosen mon's IV spread
+void SetChosenMonIVSpread(void)
+{
+    u8 i;
+    u8 spread[NUMBER_OF_MON_TYPES - 3][NUM_STATS] =
+    {
+        { 31, 31, 30, 30, 30, 30 }, // Fighting
+        { 31, 31, 31, 30, 30, 30 }, // Flying
+        { 31, 31, 30, 30, 30, 31 }, // Poison
+        { 31, 31, 31, 30, 30, 31 }, // Ground
+        { 31, 31, 30, 31, 30, 30 }, // Rock
+        { 31, 31, 31, 31, 30, 30 }, // Bug
+        { 31, 31, 30, 31, 30, 31 }, // Ghost
+        { 31, 31, 31, 31, 30, 31 }, // Steel
+        { 31, 30, 31, 30, 31, 30 }, // Fire
+        { 31, 31, 31, 30, 31, 30 }, // Water
+        { 31, 30, 31, 30, 31, 31 }, // Grass
+        { 31, 31, 31, 30, 31, 31 }, // Electric
+        { 31, 30, 31, 31, 31, 30 }, // Psychic
+        { 31, 30, 30, 31, 31, 31 }, // Ice
+        { 31, 30, 31, 31, 31, 31 }, // Dragon
+        { 31, 31, 31, 31, 31, 31 }  // Dark
+    };
+
+    for (i = 0; i < NUM_STATS; i++)
+    {
+        SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV + i, &spread[gSpecialVar_0x8005][i]);
+    }
+
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Set chosen mon's nature
+void SetChosenMonNature(void)
+{
+    u8 nature = gSpecialVar_0x8005 * (NUM_STATS - 1) + gSpecialVar_0x8006;
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_NATURE, &nature);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+// Change chosen mon's ability
+void ChangeChosenMonAbility(void)
+{
+    u8 ability = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM, NULL);
+    u16 species = ScriptGetPartyMonSpecies();
+
+    do {
+        ability = (ability + 1) % NUM_ABILITY_SLOTS;
+    } while (!gBaseStats[species].abilities[ability]);
+
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM, &ability);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
