@@ -1880,7 +1880,7 @@ static bool8 Fishing_WaitForA(struct Task *task)
     if (task->tFrameCounter >= reelTimeouts[task->tFishingRod])
         task->tStep = FISHING_GOT_AWAY;
     else if (JOY_NEW(A_BUTTON))
-        task->tStep++;
+        task->tStep += 2;
     return FALSE;
 }
 
