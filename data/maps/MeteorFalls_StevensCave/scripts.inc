@@ -16,6 +16,7 @@ MeteorFalls_StevensCave_EventScript_Steven::
 	waitmovement 0
 	msgbox MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_STEVEN, MeteorFalls_StevensCave_Text_StevenDefeat
+	call MeteorFalls_StevensCave_EventScript_GiveMetagrossite
 	msgbox MeteorFalls_StevensCave_Text_MyPredictionCameTrue, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_METEOR_FALLS_STEVEN
 	release
@@ -32,7 +33,10 @@ MeteorFalls_StevensCave_EventScript_Defeated::
 MeteorFalls_StevensCave_EventScript_GiveMetagrossite::
 	msgbox MeteorFalls_StevensCave_Text_GiveMetagrossite, MSGBOX_DEFAULT
 	giveitem ITEM_METAGROSSITE
+	waitmessage
+	giveitem ITEM_EON_TICKET
 	setflag FLAG_RECEIVED_METAGROSSITE
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
 	return
 
 MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst:
@@ -53,7 +57,7 @@ MeteorFalls_StevensCave_Text_StevenDefeat:
 	.string "I had no idea you'd become so strong…$"
 
 MeteorFalls_StevensCave_Text_GiveMetagrossite:
-	.string "STEVEN: Please take this.\n"
+	.string "STEVEN: Please take these.\n"
 	.string "You deserve it.$"
 
 MeteorFalls_StevensCave_Text_MyPredictionCameTrue:
