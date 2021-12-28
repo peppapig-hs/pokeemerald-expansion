@@ -4,6 +4,7 @@
 #include "bg.h"
 #include "contest_effect.h"
 #include "data.h"
+#include "daycare.h"
 #include "event_data.h"
 #include "field_screen_effect.h"
 #include "gpu_regs.h"
@@ -150,7 +151,7 @@
 #define JAM_HEART_EMPTY 2
 #define JAM_HEART_FULL 3
 
-#define MAX_RELEARNER_MOVES (MAX_LEVEL_UP_MOVES > 25 ? MAX_LEVEL_UP_MOVES : 25)
+#define MAX_RELEARNER_MOVES EGG_MOVES_ARRAY_COUNT + (MAX_LEVEL_UP_MOVES > 25 ? MAX_LEVEL_UP_MOVES : 25)
 
 static EWRAM_DATA struct
 {
