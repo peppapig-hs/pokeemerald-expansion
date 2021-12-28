@@ -102,7 +102,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_LOPUNNITE",
+      "script": "AquaHideout_B2F_EventScript_ItemSharpedonite",
       "flag": "FLAG_ITEM_AQUA_HIDEOUT_B2F_SHARPEDONITE"
     }
   ],
