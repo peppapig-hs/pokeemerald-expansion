@@ -271,86 +271,57 @@ gSongTable::
 	song se_pike_curtain_close, 1, 1
 	song se_pike_curtain_open, 1, 1
 	song se_sudowoodo_shake, 1, 1
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
-	song dummy_song_header, 0, 0
+	song ph_trap_blend, 2, 2
+	song ph_trap_held, 2, 2
+	song ph_trap_solo, 2, 2
+	song ph_face_blend, 2, 2
+	song ph_face_held, 2, 2
+	song ph_face_solo, 2, 2
+	song ph_cloth_blend, 2, 2
+	song ph_cloth_held, 2, 2
+	song ph_cloth_solo, 2, 2
+	song ph_dress_blend, 2, 2
+	song ph_dress_held, 2, 2
+	song ph_dress_solo, 2, 2
+	song ph_fleece_blend, 2, 2
+	song ph_fleece_held, 2, 2
+	song ph_fleece_solo, 2, 2
+	song ph_kit_blend, 2, 2
+	song ph_kit_held, 2, 2
+	song ph_kit_solo, 2, 2
+	song ph_price_blend, 2, 2
+	song ph_price_held, 2, 2
+	song ph_price_solo, 2, 2
+	song ph_lot_blend, 2, 2
+	song ph_lot_held, 2, 2
+	song ph_lot_solo, 2, 2
+	song ph_goat_blend, 2, 2
+	song ph_goat_held, 2, 2
+	song ph_goat_solo, 2, 2
+	song ph_thought_blend, 2, 2
+	song ph_thought_held, 2, 2
+	song ph_thought_solo, 2, 2
+	song ph_choice_blend, 2, 2
+	song ph_choice_held, 2, 2
+	song ph_choice_solo, 2, 2
+	song ph_mouth_blend, 2, 2
+	song ph_mouth_held, 2, 2
+	song ph_mouth_solo, 2, 2
+	song ph_foot_blend, 2, 2
+	song ph_foot_held, 2, 2
+	song ph_foot_solo, 2, 2
+	song ph_goose_blend, 2, 2
+	song ph_goose_held, 2, 2
+	song ph_goose_solo, 2, 2
+	song ph_strut_blend, 2, 2
+	song ph_strut_held, 2, 2
+	song ph_strut_solo, 2, 2
+	song ph_cure_blend, 2, 2
+	song ph_cure_held, 2, 2
+	song ph_cure_solo, 2, 2
+	song ph_nurse_blend, 2, 2
+	song ph_nurse_held, 2, 2
+	song ph_nurse_solo, 2, 2
 	song mus_littleroot_test, 0, 0
 	song mus_gsc_route38, 0, 0
 	song mus_caught, 0, 0
@@ -444,7 +415,7 @@ gSongTable::
 	song mus_contest, 0, 0
 	song mus_encounter_magma, 0, 0
 	song mus_intro_battle, 0, 0
-	song mus_abnormal_weather, 0, 0
+	song mus_weather_kyogre, 0, 0
 	song mus_weather_groudon, 0, 0
 	song mus_sootopolis, 0, 0
 	song mus_contest_results, 0, 0
@@ -458,23 +429,6 @@ gSongTable::
 	song mus_encounter_champion, 0, 0
 	song mus_credits, 0, 0
 	song mus_end, 0, 0
-	song mus_b_frontier, 0, 0
-	song mus_b_arena, 0, 0
-	song mus_obtain_b_points, 2, 2
-	song mus_register_match_call, 2, 2
-	song mus_b_pyramid, 0, 0
-	song mus_b_pyramid_top, 0, 0
-	song mus_b_palace, 0, 0
-	song mus_rayquaza_appears, 0, 0
-	song mus_b_tower, 0, 0
-	song mus_obtain_symbol, 2, 2
-	song mus_b_dome, 0, 0
-	song mus_b_pike, 0, 0
-	song mus_b_factory, 0, 0
-	song mus_vs_rayquaza, 0, 0
-	song mus_vs_frontier_brain, 0, 0
-	song mus_vs_mew, 0, 0
-	song mus_b_dome_lobby, 0, 0
 	song mus_vs_wild, 0, 0
 	song mus_vs_aqua_magma, 0, 0
 	song mus_vs_trainer, 0, 0
@@ -523,9 +477,9 @@ gSongTable::
 	song mus_rg_silph, 0, 0
 	song mus_rg_fuchsia, 0, 0
 	song mus_rg_celadon, 0, 0
-	song mus_rg_victory_trainer, 0, 0
-	song mus_rg_victory_wild, 0, 0
-	song mus_rg_victory_gym_leader, 0, 0
+	song mus_victory_trainer, 0, 0
+	song mus_victory_wild, 0, 0
+	song mus_victory_gym_leader, 0, 0
 	song mus_rg_vermillion, 0, 0
 	song mus_rg_pewter, 0, 0
 	song mus_rg_encounter_rival, 0, 0
@@ -544,11 +498,11 @@ gSongTable::
 	song mus_rg_net_center, 0, 0
 	song mus_rg_mystery_gift, 0, 0
 	song mus_rg_berry_pick, 0, 0
-	song mus_rg_sevii_cave, 0, 0
-	song mus_rg_teachy_tv_show, 0, 0
+	song mus_rg_mt_moon, 0, 0
+	song mus_rg_follow_me, 0, 0
 	song mus_rg_sevii_route, 0, 0
-	song mus_rg_sevii_dungeon, 0, 0
-	song mus_rg_sevii_123, 0, 0
+	song mus_rg_viridian_forest, 0, 0
+	song mus_rg_pewter, 0, 0
 	song mus_rg_sevii_45, 0, 0
 	song mus_rg_sevii_67, 0, 0
 	song mus_rg_poke_flute, 2, 2
@@ -560,57 +514,73 @@ gSongTable::
 	song mus_rg_trainer_tower, 0, 0
 	song mus_rg_slow_pallet, 0, 0
 	song mus_rg_teachy_tv_menu, 0, 0
-	song ph_trap_blend, 2, 2
-	song ph_trap_held, 2, 2
-	song ph_trap_solo, 2, 2
-	song ph_face_blend, 2, 2
-	song ph_face_held, 2, 2
-	song ph_face_solo, 2, 2
-	song ph_cloth_blend, 2, 2
-	song ph_cloth_held, 2, 2
-	song ph_cloth_solo, 2, 2
-	song ph_dress_blend, 2, 2
-	song ph_dress_held, 2, 2
-	song ph_dress_solo, 2, 2
-	song ph_fleece_blend, 2, 2
-	song ph_fleece_held, 2, 2
-	song ph_fleece_solo, 2, 2
-	song ph_kit_blend, 2, 2
-	song ph_kit_held, 2, 2
-	song ph_kit_solo, 2, 2
-	song ph_price_blend, 2, 2
-	song ph_price_held, 2, 2
-	song ph_price_solo, 2, 2
-	song ph_lot_blend, 2, 2
-	song ph_lot_held, 2, 2
-	song ph_lot_solo, 2, 2
-	song ph_goat_blend, 2, 2
-	song ph_goat_held, 2, 2
-	song ph_goat_solo, 2, 2
-	song ph_thought_blend, 2, 2
-	song ph_thought_held, 2, 2
-	song ph_thought_solo, 2, 2
-	song ph_choice_blend, 2, 2
-	song ph_choice_held, 2, 2
-	song ph_choice_solo, 2, 2
-	song ph_mouth_blend, 2, 2
-	song ph_mouth_held, 2, 2
-	song ph_mouth_solo, 2, 2
-	song ph_foot_blend, 2, 2
-	song ph_foot_held, 2, 2
-	song ph_foot_solo, 2, 2
-	song ph_goose_blend, 2, 2
-	song ph_goose_held, 2, 2
-	song ph_goose_solo, 2, 2
-	song ph_strut_blend, 2, 2
-	song ph_strut_held, 2, 2
-	song ph_strut_solo, 2, 2
-	song ph_cure_blend, 2, 2
-	song ph_cure_held, 2, 2
-	song ph_cure_solo, 2, 2
-	song ph_nurse_blend, 2, 2
-	song ph_nurse_held, 2, 2
-	song ph_nurse_solo, 2, 2
+	song mus_abnormal_weather, 0, 0
+	song mus_b_frontier, 0, 0
+	song mus_b_arena, 0, 0
+	song mus_obtain_b_points, 2, 2
+	song mus_register_match_call, 2, 2
+	song mus_b_pyramid, 0, 0
+	song mus_b_pyramid_top, 0, 0
+	song mus_b_palace, 0, 0
+	song mus_rayquaza_appears, 0, 0
+	song mus_b_tower, 0, 0
+	song mus_obtain_symbol, 2, 2
+	song mus_b_dome, 0, 0
+	song mus_b_pike, 0, 0
+	song mus_b_factory, 0, 0
+	song mus_vs_kyogre_groudon, 0, 0
+	song mus_vs_frontier_brain, 0, 0
+	song mus_vs_mew, 0, 0
+	song mus_b_dome_lobby, 0, 0
+	song dp_seq_ba_poke, 0, 0
+	song dp_seq_ba_train, 0, 0
+	song dp_seq_ba_rival, 0, 0
+	song dp_seq_ba_gym, 0, 0
+	song dp_seq_ba_ginga, 0, 0
+	song dp_seq_ba_ginga3, 0, 0
+	song dp_seq_ba_agaki, 0, 0
+	song dp_seq_ba_dpoke2, 0, 0
+	song dp_seq_ba_dpoke1, 0, 0
+	song dp_seq_ba_secret2, 0, 0
+	song dp_seq_ba_tenno, 0, 0
+	song dp_seq_ba_chanp, 0, 0
+	song dp_seq_ba_secret1, 0, 0
+	song pl_seq_pl_ba_gira, 0, 0
+	song pl_seq_pl_ba_brain, 0, 0
+	song pl_seq_pl_ba_regi, 0, 0
+	song hg_seq_gs_vs_norapoke, 0, 0
+	song hg_seq_gs_vs_trainer, 0, 0
+	song hg_seq_gs_vs_rocket, 0, 0
+	song hg_seq_gs_vs_rival, 0, 0
+	song hg_seq_gs_vs_gymreader, 0, 0
+	song hg_seq_gs_vs_raikou, 0, 0
+	song hg_seq_gs_vs_entei, 0, 0
+	song hg_seq_gs_vs_houou, 0, 0
+	song hg_seq_gs_vs_gymreader_kanto, 0, 0
+	song hg_seq_gs_vs_norapoke_kanto, 0, 0
+	song hg_seq_gs_vs_suicune, 0, 0
+	song hg_seq_gs_vs_trainer_kanto, 0, 0
+	song hg_seq_gs_vs_lugia, 0, 0
+	song hg_seq_gs_vs_champ, 0, 0
+	song hg_seq_gs_vs_kodai, 0, 0
+	song bw_seq_bgm_vs_rival, 0, 0
+	song bw_seq_bgm_vs_norapoke, 0, 0
+	song bw_seq_bgm_vs_trainer, 0, 0
+	song bw_seq_bgm_vs_plasma, 0, 0
+	song bw_seq_bgm_vs_gymleader, 0, 0
+	song bw_seq_bgm_battlesuperior, 0, 0
+	song bw_seq_bgm_vs_n, 0, 0
+	song bw_seq_bgm_vs_shitenno, 0, 0
+	song bw_seq_bgm_vs_shin, 0, 0
+	song bw_seq_bgm_vs_n_2, 0, 0
+	song bw_seq_bgm_vs_g_cis, 0, 0
+	song bw_seq_bgm_vs_subway_trainer, 0, 0
+	song bw_seq_bgm_vs_movepoke, 0, 0
+	song bw_seq_bgm_vs_shirona, 0, 0
+	song bw_seq_bgm_vs_tsuyopoke, 0, 0
+	song bw_seq_bgm_vs_rai, 0, 0
+	song bw_seq_bgm_vs_champ, 0, 0
+	song bw_seq_bgm_vs_wcs, 0, 0
 
 	.align 2
 dummy_song_header:
