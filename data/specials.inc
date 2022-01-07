@@ -548,3 +548,5 @@ gSpecials::
 	def_special SetChosenMonIVSpread
 	def_special SetChosenMonNature
 	def_special ChangeChosenMonAbility
+	def_special ShouldTeachDragonAscent
+	def_special TeachDragonAscent

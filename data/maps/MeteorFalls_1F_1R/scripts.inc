@@ -237,6 +237,55 @@ MeteorFalls_1F_1R_EventScript_MetCozmo::
 	release
 	end
 
+MeteorFalls_1F_1R_EventScript_ZinniasGrandmother::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_SALAMENCITE, MeteorFalls_1F_1R_EventScript_CheckDragonAscent
+	msgbox MeteorFalls_1F_1R_Text_GiveSalamencite, MSGBOX_DEFAULT
+	giveitem ITEM_SALAMENCITE
+	setflag FLAG_RECEIVED_SALAMENCITE
+MeteorFalls_1F_1R_EventScript_ZinniaFuture:
+	msgbox MeteorFalls_1F_1R_Text_ZinniaFuture, MSGBOX_DEFAULT
+	release
+	end
+
+MeteorFalls_1F_1R_EventScript_CheckDragonAscent::
+	specialvar VAR_RESULT, ShouldTeachDragonAscent
+	goto_if_eq VAR_RESULT, FALSE, MeteorFalls_1F_1R_EventScript_ZinniaFuture
+	msgbox MeteorFalls_1F_1R_Text_CanTeachDragonAscent, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MeteorFalls_1F_1R_EventScript_DragonAscentExplained
+	special GetNumMovesSelectedMonHas
+	goto_if_eq VAR_RESULT, MAX_MON_MOVES, MeteorFalls_1F_1R_EventScript_ForgetMove
+	goto MeteorFalls_1F_1R_EventScript_TeachDragonAscent
+
+MeteorFalls_1F_1R_EventScript_ForgetMove::
+	bufferpartymonnick 0, VAR_0x8004
+	buffermovename 1, MOVE_DRAGON_ASCENT
+	msgbox MeteorFalls_1F_1R_Text_TryLearnMove, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MeteorFalls_1F_1R_EventScript_DragonAscentExplained
+	msgbox MeteorFalls_1F_1R_Text_WhichMoveShouldBeForgotten, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	special MoveDeleterChooseMoveToForget
+	fadescreen FADE_FROM_BLACK
+	goto_if_eq VAR_0x8005, MAX_MON_MOVES, MeteorFalls_1F_1R_EventScript_DragonAscentExplained
+	special BufferMoveDeleterNicknameAndMove
+	msgbox MeteorFalls_1F_1R_Text_ForgotMove, MSGBOX_DEFAULT
+	special MoveDeleterForgetMove
+	goto MeteorFalls_1F_1R_EventScript_TeachDragonAscent
+
+MeteorFalls_1F_1R_EventScript_TeachDragonAscent::
+	special TeachDragonAscent
+	bufferpartymonnick 0, VAR_0x8004
+	buffermovename 1, MOVE_DRAGON_ASCENT
+	playfanfare MUS_LEVEL_UP
+	msgbox MeteorFalls_1F_1R_Text_LearnedMove, MSGBOX_DEFAULT
+	goto MeteorFalls_1F_1R_EventScript_DragonAscentExplained
+
+MeteorFalls_1F_1R_EventScript_DragonAscentExplained::
+	msgbox MeteorFalls_1F_1R_Text_DragonAscentExplained, MSGBOX_DEFAULT
+	release
+	end
+
 MeteorFalls_1F_1R_Text_WithThisMeteorite:
 	.string "Hehehe!\p"
 	.string "With this METEORITE, that thing in\n"
@@ -313,3 +362,53 @@ MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney:
 	.string "PROF. COZMO: But that TEAM MAGMA…\p"
 	.string "What are they going to do with that\n"
 	.string "METEORITE at MT. CHIMNEY?$"
+
+MeteorFalls_1F_1R_Text_GiveSalamencite:
+	.string "Zinnia has gone on a journey.\n"
+	.string "A journey to find herself this time.\p"
+	.string "Ah, yes...\n"
+	.string "She did leave this for you, though.\l"
+	.string "I hope you will accept it.$"
+
+MeteorFalls_1F_1R_Text_ZinniaFuture:
+	.string "I wonder what kind of future\n"
+	.string "Zinnia might find for herself,\l"
+	.string "now that she is free from the\l"
+	.string "fate of the Draconids.\p"
+	.string "Though I don't think that I\n"
+	.string "need to worry about it.\p"
+	.string "Ah, yes.\n"
+	.string "If ever your Rayquaza forgets how to\l"
+	.string "use Dragon Ascent, come call upon me.$"
+
+MeteorFalls_1F_1R_Text_CanTeachDragonAscent:
+	.string "Hmm... Do you want me to teach\n"
+	.string "Dragon Ascent to your POKéMON?$"
+
+MeteorFalls_1F_1R_Text_TryLearnMove:
+	.string "{STR_VAR_1} is trying to learn\n{STR_VAR_2}.\p"
+	.string "But {STR_VAR_1} can't learn more\n"
+	.string "than four moves.\p"
+	.string "Delete an older move to make\n"
+	.string "room for {STR_VAR_2}?$"
+
+MeteorFalls_1F_1R_Text_WhichMoveShouldBeForgotten:
+	.string "Which move should be forgotten?$"
+
+MeteorFalls_1F_1R_Text_ForgotMove:
+	.string "{PAUSE 32}1, {PAUSE 15}2, and {PAUSE 15}… {PAUSE 15}… {PAUSE 15}… {PAUSE 15}{PLAY_SE SE_BALL_BOUNCE_1}Poof!\p"
+	.string "{STR_VAR_1} forgot how to use\n"
+	.string "{STR_VAR_2}.\p"
+	.string "And…$"
+
+MeteorFalls_1F_1R_Text_LearnedMove:
+	.string "{STR_VAR_1} learned {STR_VAR_2}!{WAIT_SE}$"
+
+MeteorFalls_1F_1R_Text_DragonAscentExplained:
+	.string "Dragon Ascent is a powerful move\n"
+	.string "that only Rayquaza can use.\p"
+	.string "They say its power is so strong that\n"
+	.string "even a huge meteoroid can be broken\l"
+	.string "into pieces with one attack.\p"
+	.string "Well, you must know best\n"
+	.string "about how fierce it is, though.$"

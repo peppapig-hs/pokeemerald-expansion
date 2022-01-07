@@ -4592,3 +4592,45 @@ void ChangeChosenMonAbility(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ABILITY_NUM, &ability);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
+
+bool8 ShouldTeachDragonAscent(void)
+{
+    u8 partyCount;
+    u8 i;
+    u16 move;
+    u32 species;
+
+    partyCount = CalculatePlayerPartyCount();
+
+    i = 0;
+    for (i = 0; i < partyCount; i++)
+    {
+        species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+        if (species == SPECIES_RAYQUAZA)
+        {
+            gSpecialVar_0x8004 = i;
+            break;
+        }
+    }
+
+    if (i == partyCount)
+    {
+        return FALSE;
+    }
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        move = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_MOVE1 + i);
+        if (move == MOVE_DRAGON_ASCENT)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+void TeachDragonAscent(void)
+{
+    GiveMoveToMon(&gPlayerParty[gSpecialVar_0x8004], MOVE_DRAGON_ASCENT);
+}
