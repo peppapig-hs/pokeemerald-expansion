@@ -105,10 +105,20 @@ MossdeepCity_SpaceCenter_2F_Movement_Grunt7Defeated:
 MossdeepCity_SpaceCenter_2F_EventScript_Scientist::
 	lock
 	faceplayer
-	goto_if_set FLAG_SYS_GAME_CLEAR, MossdeepCity_SpaceCenter_2F_EventScript_ScientistNormal
+	goto_if_set FLAG_SYS_GAME_CLEAR, MossdeepCity_SpaceCenter_2F_EventScript_ScientistCheckAuroraTicket
 	goto_if_eq VAR_MOSSDEEP_CITY_STATE, 2, MossdeepCity_SpaceCenter_2F_EventScript_ScientistMagma
 	goto_if_lt VAR_MOSSDEEP_CITY_STATE, 2, MossdeepCity_SpaceCenter_2F_EventScript_ScientistNormal
 	goto MossdeepCity_SpaceCenter_2F_EventScript_ScientistMagma
+	end
+
+MossdeepCity_SpaceCenter_2F_EventScript_ScientistCheckAuroraTicket:
+	goto_if_set FLAG_RECEIVED_AURORA_TICKET, MossdeepCity_SpaceCenter_2F_EventScript_ScientistNormal
+	msgbox MossdeepCity_SpaceCenter_2F_Text_ThankYouForHelping, MSGBOX_DEFAULT
+	giveitem ITEM_AURORA_TICKET
+	setflag FLAG_ENABLE_SHIP_BIRTH_ISLAND
+	setflag FLAG_RECEIVED_AURORA_TICKET
+	msgbox MossdeepCity_SpaceCenter_2F_Text_InvestigateTheIsland, MSGBOX_DEFAULT
+	release
 	end
 
 MossdeepCity_SpaceCenter_2F_EventScript_ScientistNormal::
@@ -513,3 +523,16 @@ MossdeepCity_SpaceCenter_2F_Text_StevenThankYouComeSeeMeAtHome:
 	.string "after this.\p"
 	.string "Oh, yes, I don't live in RUSTBORO CITY.\n"
 	.string "I live right here on this island.$"
+
+MossdeepCity_SpaceCenter_2F_Text_ThankYouForHelping:
+	.string "Oh! It's been a while since I met you.\p"
+	.string "Thank you for helping us back then.\p"
+	.string "Here is a small gift for you.$"
+
+MossdeepCity_SpaceCenter_2F_Text_InvestigateTheIsland:
+	.string "It's a ticket to an island where\n"
+	.string "a meteor crashed long time ago.\p"
+	.string "Rumor has it that there might be an\n"
+	.string "extraterrestrial being residing there.\p"
+	.string "I hope you can investigate the island\n"
+	.string "for us.$"
