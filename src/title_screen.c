@@ -22,6 +22,7 @@
 #include "graphics.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/species.h"
 
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
 #define VERSION_BANNER_LEFT_X 98
@@ -29,6 +30,10 @@
 #define VERSION_BANNER_Y 2
 #define VERSION_BANNER_Y_GOAL 66
 #define START_BANNER_X 128
+#define DELTA_X 120
+#define DELTA_Y 130
+#define DELTA_Y_GOAL 66
+#define DELTA_Y_SILHOUETTE 114
 
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
 #define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
@@ -50,6 +55,8 @@ static void SpriteCB_VersionBannerLeft(struct Sprite *sprite);
 static void SpriteCB_VersionBannerRight(struct Sprite *sprite);
 static void SpriteCB_PressStartCopyrightBanner(struct Sprite *sprite);
 static void SpriteCB_PokemonLogoShine(struct Sprite *sprite);
+static void SpriteCB_Delta(struct Sprite *sprite);
+static void SpriteCB_DeltaSilhouette(struct Sprite *sprite);
 
 // const rom data
 static const u16 sUnusedUnknownPal[] = INCBIN_U16("graphics/title_screen/unk_853EF78.gbapal");
@@ -59,7 +66,9 @@ static const u32 sTitleScreenRayquazaTilemap[] = INCBIN_U32("graphics/title_scre
 static const u32 sTitleScreenLogoShineGfx[] = INCBIN_U32("graphics/title_screen/logo_shine.4bpp.lz");
 static const u32 sTitleScreenCloudsGfx[] = INCBIN_U32("graphics/title_screen/clouds.4bpp.lz");
 
-
+static const u32 sTitleScreenDeltaGfx[] = INCBIN_U32("graphics/title_screen/delta.4bpp.lz");
+static const u16 sTitleScreenDeltaPal[] = INCBIN_U16("graphics/title_screen/delta.gbapal");
+static const u16 sTitleScreenDeltaSilhouettePal[] = INCBIN_U16("graphics/title_screen/delta_silhouette.gbapal");
 
 // Used to blend "Emerald Version" as it passes over over the Pokémon banner.
 // Also used by the intro to blend the Game Freak name/logo in and out as they appear and disappear
@@ -476,6 +485,104 @@ static void SpriteCB_PokemonLogoShine2(struct Sprite *sprite)
         DestroySprite(sprite);
 }
 
+static const struct OamData sDeltaOamData =
+{
+    .y = DISPLAY_HEIGHT,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = 0,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const union AnimCmd sDeltaAnimSequence[] =
+{
+    ANIMCMD_FRAME(0, 30),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sDeltaAnimTable[] =
+{
+    sDeltaAnimSequence,
+};
+
+static const struct SpriteTemplate sDeltaSpriteTemplate =
+{
+    .tileTag = 1003,
+    .paletteTag = 1003,
+    .oam = &sDeltaOamData,
+    .anims = sDeltaAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_Delta,
+};
+
+static const struct SpriteTemplate sDeltaSilhouetteSpriteTemplate =
+{
+    .tileTag = 1003,
+    .paletteTag = 1004,
+    .oam = &sDeltaOamData,
+    .anims = sDeltaAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCB_DeltaSilhouette,
+};
+
+static const struct CompressedSpriteSheet sSpriteSheet_Delta[] =
+{
+    {
+        .data = sTitleScreenDeltaGfx,
+        .size = 0x1000,
+        .tag = 1003
+    },
+    {},
+};
+
+static const struct SpritePalette sSpritePalette_Delta[] =
+{
+    {
+        .data = sTitleScreenDeltaPal,
+        .tag = 1003
+    },
+    {},
+};
+
+static const struct SpritePalette sSpritePalette_DeltaSilhouette[] =
+{
+    {
+        .data = sTitleScreenDeltaSilhouettePal,
+        .tag = 1004
+    },
+    {},
+};
+
+static void SpriteCB_Delta(struct Sprite *sprite)
+{
+    if (gTasks[sprite->data[1]].data[1] != 0)
+    {
+        sprite->oam.objMode = ST_OAM_OBJ_NORMAL;
+        sprite->y = DELTA_Y_GOAL;
+    }
+    else
+    {
+        if (sprite->y != DELTA_Y_GOAL)
+            sprite->y--;
+    }
+}
+
+static void SpriteCB_DeltaSilhouette(struct Sprite *sprite)
+{
+    if (gTasks[sprite->data[0]].data[1] != 0 || gTasks[sprite->data[0]].data[0] == 0)
+        DestroySprite(sprite);
+}
+
 static void StartPokemonLogoShine(u8 flashBg)
 {
     u8 spriteId;
@@ -565,16 +672,22 @@ void CB2_InitTitleScreen(void)
         LoadCompressedSpriteSheet(&sPokemonLogoShineSpriteSheet[0]);
         LoadPalette(gTitleScreenEmeraldVersionPal, 0x100, 0x20);
         LoadSpritePalette(&sSpritePalette_PressStart[0]);
+        LoadCompressedSpriteSheet(&sSpriteSheet_Delta[0]);
+        LoadSpritePalette(&sSpritePalette_Delta[0]);
+        LoadSpritePalette(&sSpritePalette_DeltaSilhouette[0]);
         gMain.state = 2;
         break;
     case 2:
     {
         u8 taskId = CreateTask(Task_TitleScreenPhase1, 0);
+        u8 deltaId = CreateSprite(&sDeltaSilhouetteSpriteTemplate, DELTA_X, DELTA_Y_SILHOUETTE, 0);
 
         gTasks[taskId].tCounter = 256;
         gTasks[taskId].tSkipToNext = FALSE;
         gTasks[taskId].data[2] = -16;
         gTasks[taskId].data[3] = -32;
+
+        gSprites[deltaId].data[0] = taskId;
         gMain.state = 3;
         break;
     }
@@ -670,6 +783,10 @@ static void Task_TitleScreenPhase1(u8 taskId)
         spriteId = CreateSprite(&sVersionBannerRightSpriteTemplate, VERSION_BANNER_RIGHT_X, VERSION_BANNER_Y, 0);
         gSprites[spriteId].data[1] = taskId;
 
+        // Create delta symbol
+        spriteId = CreateSprite(&sDeltaSpriteTemplate, DELTA_X, DELTA_Y, 1);
+        gSprites[spriteId].data[1] = taskId;
+
         gTasks[taskId].tCounter = 144;
         gTasks[taskId].func = Task_TitleScreenPhase2;
     }
@@ -728,6 +845,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
 {
     if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(START_BUTTON)))
     {
+        PlayCryInternal(SPECIES_RAYQUAZA, 0, CRY_VOLUME, CRY_PRIORITY_NORMAL, CRY_MODE_NORMAL);
         FadeOutBGM(4);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_WHITEALPHA);
         SetMainCallback2(CB2_GoToMainMenu);
