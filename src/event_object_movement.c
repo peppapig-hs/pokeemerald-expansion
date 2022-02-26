@@ -436,6 +436,27 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_TAG_LUGIA                   0x1121
 #define OBJ_EVENT_PAL_TAG_RS_BRENDAN              0x1122
 #define OBJ_EVENT_PAL_TAG_RS_MAY                  0x1123
+#define OBJ_EVENT_PAL_TAG_ARTICUNO                0x1124
+#define OBJ_EVENT_PAL_TAG_CELEBI                  0x1125
+#define OBJ_EVENT_PAL_TAG_ENTEI                   0x1126
+#define OBJ_EVENT_PAL_TAG_JIRACHI                 0x1127
+#define OBJ_EVENT_PAL_TAG_MEWTWO                  0x1128
+#define OBJ_EVENT_PAL_TAG_MOLTRES                 0x1129
+#define OBJ_EVENT_PAL_TAG_RAIKOU                  0x112A
+#define OBJ_EVENT_PAL_TAG_SUICUNE                 0x112B
+#define OBJ_EVENT_PAL_TAG_ZAPDOS                  0x112C
+#define OBJ_EVENT_PAL_TAG_ARCEUS                  0x112D
+#define OBJ_EVENT_PAL_TAG_AZELF                   0x112E
+#define OBJ_EVENT_PAL_TAG_CRESSELIA               0x112F
+#define OBJ_EVENT_PAL_TAG_DIALGA                  0x1130
+#define OBJ_EVENT_PAL_TAG_DARKRAI                 0x1131
+#define OBJ_EVENT_PAL_TAG_GIRATINA                0x1132
+#define OBJ_EVENT_PAL_TAG_HEATRAN                 0x1133
+#define OBJ_EVENT_PAL_TAG_MESPRIT                 0x1134
+#define OBJ_EVENT_PAL_TAG_PALKIA                  0x1135
+#define OBJ_EVENT_PAL_TAG_REGIGIGAS               0x1136
+#define OBJ_EVENT_PAL_TAG_SHAYMIN                 0x1137
+#define OBJ_EVENT_PAL_TAG_UXIE                    0x1138
 #define OBJ_EVENT_PAL_TAG_NONE                    0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -482,6 +503,27 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Lugia,                 OBJ_EVENT_PAL_TAG_LUGIA},
     {gObjectEventPal_RubySapphireBrendan,   OBJ_EVENT_PAL_TAG_RS_BRENDAN},
     {gObjectEventPal_RubySapphireMay,       OBJ_EVENT_PAL_TAG_RS_MAY},
+    {gObjectEventPalette_Articuno,          OBJ_EVENT_PAL_TAG_ARTICUNO}, 
+    {gObjectEventPalette_Celebi,            OBJ_EVENT_PAL_TAG_CELEBI}, 
+    {gObjectEventPalette_Entei,             OBJ_EVENT_PAL_TAG_ENTEI}, 
+    {gObjectEventPalette_Jirachi,           OBJ_EVENT_PAL_TAG_JIRACHI}, 
+    {gObjectEventPalette_Mewtwo,            OBJ_EVENT_PAL_TAG_MEWTWO}, 
+    {gObjectEventPalette_Moltres,           OBJ_EVENT_PAL_TAG_MOLTRES}, 
+    {gObjectEventPalette_Raikou,            OBJ_EVENT_PAL_TAG_RAIKOU}, 
+    {gObjectEventPalette_Suicune,           OBJ_EVENT_PAL_TAG_SUICUNE}, 
+    {gObjectEventPalette_Zapdos,            OBJ_EVENT_PAL_TAG_ZAPDOS}, 
+    {gObjectEventPalette_Arceus,            OBJ_EVENT_PAL_TAG_ARCEUS},
+    {gObjectEventPalette_Azelf,             OBJ_EVENT_PAL_TAG_AZELF},
+    {gObjectEventPalette_Cresselia,         OBJ_EVENT_PAL_TAG_CRESSELIA},
+    {gObjectEventPalette_Darkrai,           OBJ_EVENT_PAL_TAG_DARKRAI},
+    {gObjectEventPalette_Dialga,            OBJ_EVENT_PAL_TAG_DIALGA},
+    {gObjectEventPalette_Giratina,          OBJ_EVENT_PAL_TAG_GIRATINA},
+    {gObjectEventPalette_Heatran,           OBJ_EVENT_PAL_TAG_HEATRAN},
+    {gObjectEventPalette_Mesprit,           OBJ_EVENT_PAL_TAG_MESPRIT},
+    {gObjectEventPalette_Palkia,            OBJ_EVENT_PAL_TAG_PALKIA},
+    {gObjectEventPalette_Regigigas,         OBJ_EVENT_PAL_TAG_REGIGIGAS},
+    {gObjectEventPalette_Shaymin,           OBJ_EVENT_PAL_TAG_SHAYMIN},
+    {gObjectEventPalette_Uxie,              OBJ_EVENT_PAL_TAG_UXIE},
     {},
 };
 

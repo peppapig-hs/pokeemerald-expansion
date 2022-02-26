@@ -241,8 +241,29 @@
 #define OBJ_EVENT_GFX_LUGIA                      237
 #define OBJ_EVENT_GFX_HOOH                       238
 #define OBJ_EVENT_GFX_MEGA_STONE                 239
+#define OBJ_EVENT_GFX_ARTICUNO                   240
+#define OBJ_EVENT_GFX_CELEBI                     241
+#define OBJ_EVENT_GFX_ENTEI                      242
+#define OBJ_EVENT_GFX_JIRACHI                    243
+#define OBJ_EVENT_GFX_MEWTWO                     244
+#define OBJ_EVENT_GFX_MOLTRES                    245
+#define OBJ_EVENT_GFX_RAIKOU                     246
+#define OBJ_EVENT_GFX_SUICUNE                    247
+#define OBJ_EVENT_GFX_ZAPDOS                     248
+#define OBJ_EVENT_GFX_ARCEUS                     249
+#define OBJ_EVENT_GFX_AZELF                      250
+#define OBJ_EVENT_GFX_CRESSELIA                  251
+#define OBJ_EVENT_GFX_DARKRAI                    252
+#define OBJ_EVENT_GFX_DIALGA                     253
+#define OBJ_EVENT_GFX_GIRATINA                   254
+#define OBJ_EVENT_GFX_HEATRAN                    255
+#define OBJ_EVENT_GFX_MESPRIT                    256
+#define OBJ_EVENT_GFX_PALKIA                     257
+#define OBJ_EVENT_GFX_REGIGIGAS                  258
+#define OBJ_EVENT_GFX_SHAYMIN                    259
+#define OBJ_EVENT_GFX_UXIE                       260
 
-#define NUM_OBJ_EVENT_GFX                        240
+#define NUM_OBJ_EVENT_GFX                        261
 
 
 // These are dynamic object gfx ids.
