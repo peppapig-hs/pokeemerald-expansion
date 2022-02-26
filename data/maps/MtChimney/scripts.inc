@@ -12,10 +12,23 @@ MtChimney_MapScripts::
 
 MtChimney_OnTransition:
 	setvar VAR_JAGGED_PASS_ASH_WEATHER, 1
+	call_if_set FLAG_CAUGHT_MOLTRES, MtChimney_EventScript_HideMoltres
+	call_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_HideMoltres
+	call_if_unset FLAG_CAUGHT_MOLTRES, MtChimney_EventScript_TryShowMoltres
 	end
+
+MtChimney_EventScript_HideMoltres::
+	setflag FLAG_HIDE_MOLTRES
+	return
+
+MtChimney_EventScript_TryShowMoltres::
+	goto_if_set FLAG_DEFEATED_MOLTRES, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_MOLTRES
+	return
 
 MtChimney_OnResume:
 	setstepcallback STEP_CB_ASH
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_RemoveCaughtPokemon
 	end
 
 MtChimney_EventScript_Archie::
@@ -844,3 +857,36 @@ MtChimney_Text_SawyerPostRematch:
 	.string "Actually, it really is hot here.\n"
 	.string "I'm overdressed for these parts.$"
 
+MtChimney_EventScript_Moltres::
+	lock
+	faceplayer
+	playmoncry SPECIES_MOLTRES, 2
+	waitmoncry
+	delay 20
+	setvar VAR_0x8004, SPECIES_MOLTRES
+	setvar VAR_0x8005, 50
+	setvar VAR_0x8006, ITEM_NONE
+	special CreateEventLegalEnemyMon
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_0x8004, MUS_RG_VS_WILD
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MtChimney_EventScript_DefeatedMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MtChimney_EventScript_RanFromMoltres
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MtChimney_EventScript_RanFromMoltres
+	setflag FLAG_CAUGHT_MOLTRES
+	release
+	end
+
+MtChimney_EventScript_DefeatedMoltres::
+	setflag FLAG_DEFEATED_MOLTRES
+	setvar VAR_0x8004, SPECIES_MOLTRES
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+MtChimney_EventScript_RanFromMoltres::
+	setvar VAR_0x8004, SPECIES_MOLTRES
+	goto Common_EventScript_LegendaryFlewAway
+	end

@@ -699,15 +699,17 @@
 #define FLAG_ITEM_AQUA_HIDEOUT_B2F_SHARPEDONITE      0x28C
 #define FLAG_RECEIVED_DIANCITE                       0x28D
 
-#define FLAG_UNUSED_0x28E  0x28E // Unused Flag
-#define FLAG_UNUSED_0x28F  0x28F // Unused Flag
-#define FLAG_UNUSED_0x290  0x290 // Unused Flag
-#define FLAG_UNUSED_0x291  0x291 // Unused Flag
-#define FLAG_UNUSED_0x292  0x292 // Unused Flag
-#define FLAG_UNUSED_0x293  0x293 // Unused Flag
-#define FLAG_UNUSED_0x294  0x294 // Unused Flag
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
+// Legendary Birds
+#define FLAG_HIDE_ARTICUNO                           0x28E
+#define FLAG_DEFEATED_ARTICUNO                       0x28F
+#define FLAG_CAUGHT_ARTICUNO                         0x290
+#define FLAG_HIDE_ZAPDOS                             0x291
+#define FLAG_DEFEATED_ZAPDOS                         0x292
+#define FLAG_CAUGHT_ZAPDOS                           0x293
+#define FLAG_HIDE_MOLTRES                            0x294
+#define FLAG_DEFEATED_MOLTRES                        0x295
+#define FLAG_CAUGHT_MOLTRES                          0x296
+
 #define FLAG_UNUSED_0x297  0x297 // Unused Flag
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag

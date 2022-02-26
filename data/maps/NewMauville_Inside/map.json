@@ -130,6 +130,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NewMauville_Inside_EventScript_ItemAmpharosite",
       "flag": "FLAG_ITEM_NEW_MAUVILLE_AMPHAROSITE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ZAPDOS",
+      "x": 27,
+      "y": 3,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NewMauville_Inside_EventScript_Zapdos",
+      "flag": "FLAG_HIDE_ZAPDOS"
     }
   ],
   "warp_events": [

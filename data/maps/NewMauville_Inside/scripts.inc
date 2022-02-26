@@ -7,14 +7,8 @@ NewMauville_Inside_MapScripts::
 NewMauville_Inside_OnResume:
 	call_if_eq VAR_TEMP_1, 1, NewMauville_Inside_EventScript_SetBarrierStateBlueButton
 	call_if_eq VAR_TEMP_2, 1, NewMauville_Inside_EventScript_SetBarrierStateGreenButton
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, NewMauville_Inside_EventScript_TryRemoveVoltorb
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_RemoveCaughtPokemon
 	end
-
-NewMauville_Inside_EventScript_TryRemoveVoltorb::
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
-	removeobject VAR_LAST_TALKED
-	return
 
 NewMauville_Inside_OnTransition:
 	setvar VAR_TEMP_1, 0
@@ -22,6 +16,8 @@ NewMauville_Inside_OnTransition:
 	call_if_unset FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE, NewMauville_Inside_EventScript_ShowVoltorb1
 	call_if_unset FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE, NewMauville_Inside_EventScript_ShowVoltorb2
 	call_if_unset FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE, NewMauville_Inside_EventScript_ShowVoltorb3
+	call_if_set FLAG_CAUGHT_ZAPDOS, NewMauville_Inside_EventScript_HideZapdos
+	call_if_unset FLAG_CAUGHT_ZAPDOS, NewMauville_Inside_EventScript_TryShowZapdos
 	end
 
 NewMauville_Inside_EventScript_ShowVoltorb1::
@@ -34,6 +30,15 @@ NewMauville_Inside_EventScript_ShowVoltorb2::
 
 NewMauville_Inside_EventScript_ShowVoltorb3::
 	clearflag FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3
+	return
+
+NewMauville_Inside_EventScript_HideZapdos::
+	setflag FLAG_HIDE_ZAPDOS
+	return
+
+NewMauville_Inside_EventScript_TryShowZapdos::
+	goto_if_set FLAG_DEFEATED_ZAPDOS, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_ZAPDOS
 	return
 
 NewMauville_Inside_OnLoad:
@@ -261,3 +266,37 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped:
 	.string "… … … … … … … …\p"
 	.string "The generator appears to have\n"
 	.string "stopped…$"
+
+NewMauville_Inside_EventScript_Zapdos::
+	lock
+	faceplayer
+	playmoncry SPECIES_ZAPDOS, 2
+	waitmoncry
+	delay 20
+	setvar VAR_0x8004, SPECIES_ZAPDOS
+	setvar VAR_0x8005, 50
+	setvar VAR_0x8006, ITEM_NONE
+	special CreateEventLegalEnemyMon
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_0x8004, MUS_RG_VS_WILD
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_DefeatedZapdos
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_RanFromZapdos
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NewMauville_Inside_EventScript_RanFromZapdos
+	setflag FLAG_CAUGHT_ZAPDOS
+	release
+	end
+
+NewMauville_Inside_EventScript_DefeatedZapdos::
+	setflag FLAG_DEFEATED_ZAPDOS
+	setvar VAR_0x8004, SPECIES_ZAPDOS
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+NewMauville_Inside_EventScript_RanFromZapdos::
+	setvar VAR_0x8004, SPECIES_ZAPDOS
+	goto Common_EventScript_LegendaryFlewAway
+	end
