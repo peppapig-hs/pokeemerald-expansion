@@ -13,8 +13,8 @@ MtChimney_MapScripts::
 MtChimney_OnTransition:
 	setvar VAR_JAGGED_PASS_ASH_WEATHER, 1
 	call_if_set FLAG_CAUGHT_MOLTRES, MtChimney_EventScript_HideMoltres
-	call_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_HideMoltres
 	call_if_unset FLAG_CAUGHT_MOLTRES, MtChimney_EventScript_TryShowMoltres
+	call_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_HideMoltres
 	end
 
 MtChimney_EventScript_HideMoltres::
