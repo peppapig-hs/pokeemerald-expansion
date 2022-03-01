@@ -76,6 +76,7 @@ static void CB2_HandleStartBattle(void);
 static void TryCorrectShedinjaLanguage(struct Pokemon *mon);
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer);
 static u8 GetMedianLevelInPlayerParty(void);
+static void CreateMonLatestEvolution(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u32 personalityValue);
 static void BattleMainCB1(void);
 static void CB2_EndLinkBattle(void);
 static void EndLinkBattleInSteps(void);
@@ -1846,9 +1847,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 monsCount = gTrainers[trainerNum].partySize;
         }
         else
-        {
             monsCount = gTrainers[trainerNum].partySize;
-        }
 
         minLvl = MAX_LEVEL;
         for (i = 0; i < monsCount; i++)
@@ -1856,25 +1855,17 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             switch (gTrainers[trainerNum].partyFlags)
             {
             case 0:
-            {
                 minLvl = min(minLvl, gTrainers[trainerNum].party.NoItemDefaultMoves[i].lvl);
                 break;
-            }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
-            {
                 minLvl = min(minLvl, gTrainers[trainerNum].party.NoItemCustomMoves[i].lvl);
                 break;
-            }
             case F_TRAINER_PARTY_HELD_ITEM:
-            {
                 minLvl = min(minLvl, gTrainers[trainerNum].party.ItemDefaultMoves[i].lvl);
                 break;
-            }
             case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
-            {
                 minLvl = min(minLvl, gTrainers[trainerNum].party.ItemCustomMoves[i].lvl);
                 break;
-            }
             }
         }
 
@@ -1903,7 +1894,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
                 level = min(MAX_LEVEL, partyData[i].lvl + max(0, median - minLvl));
-                CreateMon(&party[i], partyData[i].species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMonLatestEvolution(&party[i], partyData[i].species, level, fixedIV, personalityValue);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
@@ -1916,7 +1907,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
                 level = min(MAX_LEVEL, partyData[i].lvl + max(0, median - minLvl));
-                CreateMon(&party[i], partyData[i].species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMonLatestEvolution(&party[i], partyData[i].species, level, fixedIV, personalityValue);
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
@@ -1935,7 +1926,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
                 level = min(MAX_LEVEL, partyData[i].lvl + max(0, median - minLvl));
-                CreateMon(&party[i], partyData[i].species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMonLatestEvolution(&party[i], partyData[i].species, level, fixedIV, personalityValue);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
@@ -1950,7 +1941,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
                 level = min(MAX_LEVEL, partyData[i].lvl + max(0, median - minLvl));
-                CreateMon(&party[i], partyData[i].species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMonLatestEvolution(&party[i], partyData[i].species, level, fixedIV, personalityValue);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
@@ -1992,6 +1983,19 @@ static u8 GetMedianLevelInPlayerParty(void)
     }
 
     return level[count >> 1];
+}
+
+static void CreateMonLatestEvolution(struct Pokemon *mon, u16 species, u8 level, u8 fixedIV, u32 personalityValue)
+{
+    u16 evolvedSpecies;
+
+    do
+    {
+        CreateMon(mon, species, level, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+        evolvedSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, SPECIES_NONE);
+        if (evolvedSpecies != SPECIES_NONE)
+            species = evolvedSpecies;
+    } while(evolvedSpecies != SPECIES_NONE);
 }
 
 void VBlankCB_Battle(void)
