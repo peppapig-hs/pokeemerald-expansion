@@ -710,9 +710,11 @@
 #define FLAG_DEFEATED_MOLTRES                        0x295
 #define FLAG_CAUGHT_MOLTRES                          0x296
 
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
-#define FLAG_UNUSED_0x298  0x298 // Unused Flag
-#define FLAG_UNUSED_0x299  0x299 // Unused Flag
+// Mewtwo
+#define FLAG_HIDE_MEWTWO                             0x297
+#define FLAG_DEFEATED_MEWTWO                         0x298
+#define FLAG_CAUGHT_MEWTWO                           0x299
+
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag
 #define FLAG_UNUSED_0x29B  0x29B // Unused Flag
 #define FLAG_UNUSED_0x29C  0x29C // Unused Flag

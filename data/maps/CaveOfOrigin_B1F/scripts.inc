@@ -1,7 +1,28 @@
 .set LOCALID_WALLACE, 1
 
 CaveOfOrigin_B1F_MapScripts::
+	map_script MAP_SCRIPT_ON_RESUME, CaveOfOrigin_OnResume
+	map_script MAP_SCRIPT_ON_TRANSITION, CaveOfOrigin_OnTransition
 	.byte 0
+
+CaveOfOrigin_OnTransition:
+	call_if_set FLAG_CAUGHT_MEWTWO, CaveOfOrigin_EventScript_HideMewtwo
+	call_if_unset FLAG_CAUGHT_MEWTWO, CaveOfOrigin_EventScript_TryShowMewtwo
+	call_if_unset FLAG_IS_CHAMPION, CaveOfOrigin_EventScript_HideMewtwo
+	end
+
+CaveOfOrigin_EventScript_HideMewtwo::
+	setflag FLAG_HIDE_MEWTWO
+	return
+
+CaveOfOrigin_EventScript_TryShowMewtwo::
+	goto_if_set FLAG_DEFEATED_MEWTWO, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_MEWTWO
+	return
+
+CaveOfOrigin_OnResume:
+	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_RemoveCaughtPokemon
+	end
 
 CaveOfOrigin_B1F_EventScript_Wallace::
 	lock
@@ -118,3 +139,36 @@ CaveOfOrigin_B1F_Text_WellHeadToSkyPillar:
 	.string "{PLAYER}{KUN}, there's not a moment to lose!\n"
 	.string "We'll head to the SKY PILLAR right away!$"
 
+CaveOfOrigin_EventScript_Mewtwo::
+	lock
+	faceplayer
+	playmoncry SPECIES_MEWTWO, 2
+	waitmoncry
+	delay 20
+	setvar VAR_0x8004, SPECIES_MEWTWO
+	setvar VAR_0x8005, 80
+	setvar VAR_0x8006, ITEM_NONE
+	special CreateEventLegalEnemyMon
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	setvar VAR_0x8004, MUS_VS_MEW
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, CaveOfOrigin_EventScript_DefeatedMewtwo
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, CaveOfOrigin_EventScript_RanFromMewtwo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, CaveOfOrigin_EventScript_RanFromMewtwo
+	setflag FLAG_CAUGHT_MEWTWO
+	release
+	end
+
+CaveOfOrigin_EventScript_DefeatedMewtwo::
+	setflag FLAG_DEFEATED_MEWTWO
+	setvar VAR_0x8004, SPECIES_MEWTWO
+	goto Common_EventScript_LegendaryFlewAway
+	end
+
+CaveOfOrigin_EventScript_RanFromMewtwo::
+	setvar VAR_0x8004, SPECIES_MEWTWO
+	goto Common_EventScript_LegendaryFlewAway
+	end

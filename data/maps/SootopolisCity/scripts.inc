@@ -65,6 +65,7 @@ SootopolisCity_OnTransition:
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_SetExitCaveOfOriginObjPos
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 5, SootopolisCity_EventScript_SetOutsideGymObjPos
 	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 6, SootopolisCity_EventScript_SetExpertBlockCaveEntrance
+	call_if_set FLAG_IS_CHAMPION, SootopolisCity_EventScript_SetExpertNextToCaveEntrance
 	end
 
 SootopolisCity_EventScript_HideMapNamePopup::
@@ -156,6 +157,11 @@ SootopolisCity_EventScript_SetWallaceLeft::
 
 SootopolisCity_EventScript_SetExpertBlockCaveEntrance::
 	setobjectxyperm LOCALID_EXPERT, 31, 18
+	return
+
+SootopolisCity_EventScript_SetExpertNextToCaveEntrance::
+	setobjectxyperm LOCALID_EXPERT, 30, 18
+	setobjectmovementtype LOCALID_EXPERT, MOVEMENT_TYPE_FACE_RIGHT
 	return
 
 SootopolisCity_OnWarp:
